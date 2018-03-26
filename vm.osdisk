@@ -1,0 +1,295 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "subscription": {
+            "type": "string",
+            "allowedValues": [
+                "Dev Test",
+                "Pre-Production",
+                "Production"
+            ]
+        },
+        "location": {
+            "type": "string",
+            "allowedValues": [
+                "uksouth",
+                "ukwest"
+            ]
+        },
+        "osImage": {
+            "type": "string",
+            "allowedValues": [
+                "RHEL 7.3 BYOS 2018-03-21",
+                "RHEL 7.2",
+                "RHEL 7.3",
+                "SLES SAP 12-SP1",
+                "SLES SAP BYOS 12-SP1",
+                "SLES SAP 12-SP2",
+                "SLES SAP BYOS 12-SP2",
+                "SLES SAP 12-SP3",
+                "SLES SAP BYOS 12-SP3",
+                "Windows Server 2012 Datacenter",
+                "Windows Server 2012 R2 Datacenter",
+                "Windows Server 2016 Datacenter",
+                "Oracle Linux 7.2"
+            ]
+        }
+    },
+    "variables": {
+        "RHEL 7.2": {
+            "imageReference": {
+                "sku": "7.2",
+                "offer": "RHEL",
+                "publisher": "RedHat",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "RHEL 7.3": {
+            "imageReference": {
+                "sku": "7.3",
+                "offer": "RHEL",
+                "publisher": "RedHat",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "SLES SAP 12-SP1": {
+            "imageReference": {
+                "sku": "12-SP1",
+                "offer": "SLES-SAP",
+                "publisher": "SUSE",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "SLES SAP BYOS 12-SP1": {
+            "imageReference": {
+                "sku": "12-SP1",
+                "offer": "SLES-SAP-BYOS",
+                "publisher": "SUSE",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "SLES SAP 12-SP2": {
+            "imageReference": {
+                "sku": "12-SP2",
+                "offer": "SLES-SAP",
+                "publisher": "SUSE",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "SLES SAP BYOS 12-SP2": {
+            "imageReference": {
+                "sku": "12-SP2",
+                "offer": "SLES-SAP-BYOS",
+                "publisher": "SUSE",
+                "version": "latest",
+                "OSType": "Linux"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "SLES SAP 12-SP3": {
+            "imageReference": {
+                "sku": "12-SP3",
+                "offer": "SLES-SAP",
+                "publisher": "SUSE",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "SLES SAP BYOS 12-SP3": {
+            "imageReference": {
+                "sku": "12-SP3",
+                "offer": "SLES-SAP-BYOS",
+                "publisher": "SUSE",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "Windows Server 2012 Datacenter": {
+            "imageReference": {
+                "sku": "2012-Datacenter",
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "Windows Server 2012 R2 Datacenter": {
+            "imageReference": {
+                "sku": "2012-R2-Datacenter",
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "Windows Server 2016 Datacenter": {
+            "imageReference": {
+                "sku": "2016-Datacenter",
+                "offer": "WindowsServer",
+                "publisher": "MicrosoftWindowsServer",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "Oracle Linux 7.2": {
+            "imageReference": {
+                "sku": "7.2",
+                "offer": "Oracle-Linux",
+                "publisher": "Oracle",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        },
+        "userImage": {
+            "Dev Test": {
+                "uksouth": {
+                    "RHEL 7.3 BYOS 2018-03-21": {
+                        "id": "[resourceId( 'azsu-rg-sapdevtest-vmcustomimages', 'Microsoft.Compute/images', 'azsu-vmimage-redhat-rhel-7.3-byos-2018-03-2')]"
+                    }
+                },
+                "ukwest": {
+                    "RHEL 7.3 BYOS 2018-03-21": {
+                        "id": "[resourceId( 'azwu-rg-sapdevtest-vmcustomimages', 'Microsoft.Compute/images', 'azwu-vmimage-redhat-rhel-7.3-byos-2018-03-2')]"
+                    }
+                }
+            },
+            "Pre-Production": {
+                "uksouth": {
+                    "RHEL 7.3 BYOS 2018-03-21": {
+                        "id": "[resourceId( 'azsu-rg-sappreproduction-vmcustomimages', 'Microsoft.Compute/images', 'azsu-vmimage-redhat-rhel-7.3-byos-2018-03-2')]"
+                    }
+                },
+                "ukwest": {
+                    "RHEL 7.3 BYOS 2018-03-21": {
+                        "id": "[resourceId( 'azwu-rg-sappreproduction-vmcustomimages', 'Microsoft.Compute/images', 'azwu-vmimage-redhat-rhel-7.3-byos-2018-03-2')]"
+                    }
+                }
+            },
+            "Production": {
+                "uksouth": {
+                    "RHEL 7.3 BYOS 2018-03-21": {
+                        "id": "[resourceId( 'azsu-rg-sapproduction-vmcustomimages', 'Microsoft.Compute/images', 'azsu-vmimage-redhat-rhel-7.3-byos-2018-03-2')]"
+                    }
+                },
+                "ukwest": {
+                    "RHEL 7.3 BYOS 2018-03-21": {
+                        "id": "[resourceId( 'azwu-rg-sapproduction-vmcustomimages', 'Microsoft.Compute/images', 'azwu-vmimage-redhat-rhel-7.3-byos-2018-03-2')]"
+                    }
+                }
+            }
+        },
+        "RHEL 7.3 BYOS 2018-03-21": {
+            "imageReference": {
+                "id": "[variables('userImage')[parameters('subscription')][parameters('location')][string('RHEL 7.3 BYOS 2018-03-21')].id]"
+            },
+            "osDisk": {
+                "name": "[concat(parameters('vmName'), '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "osDisk": {
+            "value": "[variables(parameters('osImage'))]",
+            "type": "object"
+        }
+    }
+}
