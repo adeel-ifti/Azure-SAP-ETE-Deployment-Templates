@@ -14,6 +14,9 @@
                     "uri": "https://github.com/simonhutson/ARMTest/osDisk.json",
                     "contentVersion": "1.0.0.0"
                 },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
                 "parameters": {
                     "vmName": {
                         "value": "VMNAMETEST"
@@ -25,7 +28,7 @@
                         "value": "uksouth"
                     },
                     "osImage": {
-                        "value":"RHEL 7.3 BYOS 2018-03-21"
+                        "value": "RHEL 7.3 BYOS 2018-03-21"
                     }
                 }
             }
