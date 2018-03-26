@@ -278,7 +278,7 @@
         },
         "RHEL 7.3 BYOS 2018-03-21": {
             "imageReference": {
-                "id": "[variables('userImage')[parameters('subscription')][parameters('location')][string('RHEL 7.3 BYOS 2018-03-21')][string('id')]]"
+                "id": "[variables('userImage')[parameters('subscription')][parameters('location')][string('RHEL 7.3 BYOS 2018-03-21')].id]"
             },
             "osDisk": {
                 "name": "[concat(parameters('vmName'), '-osdisk')]",
