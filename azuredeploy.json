@@ -11,7 +11,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://github.com/simonhutson/ARMTest/osDisk.json",
+                    "uri": "https://github.com/simonhutson/ARMTest/master/osDisk.json",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
