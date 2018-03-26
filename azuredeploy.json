@@ -7,7 +7,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "osDiskNestedTemplate",
+            "name": "vm.osdisk.template",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
