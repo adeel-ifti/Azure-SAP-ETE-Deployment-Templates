@@ -28,7 +28,7 @@
                         "value": "uksouth"
                     },
                     "osImage": {
-                        "value": "RHEL 7.3 BYOS 2018-03-21"
+                        "value": "RHEL 7.3"
                     }
                 }
             }
