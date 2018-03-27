@@ -62,7 +62,31 @@
                     }
                 }
             }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(variables('uniqueString'), '.vm.vmsize.template')]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.vmsize.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "subscription": {
+                        "value": "Dev Test"
+                    },
+                    "role": {
+                        "value": "CRM"
+                    }
+                }
+            }
         }
+
     ],
     "outputs": {
         "uniqueString": {
