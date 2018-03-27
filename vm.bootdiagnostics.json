@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscription": {
+            "type": "string",
+            "allowedValues": [
+                "Dev Test",
+                "Pre-Production",
+                "Production"
+            ]
+        },
+        "location": {
+            "type": "string",
+            "allowedValues": [
+                "uksouth",
+                "ukwest"
+            ]
+        }
+    },
+    "variables": {
+        "storageUri": {
+            "Dev Test": {
+                "uksouth": {
+                    "uri": "https://azsudsapvmdiags.blob.core.windows.net/"
+                },
+                "ukwest": {
+                    "uri": "https://azwudsapvmdiags.blob.core.windows.net/"
+                }
+            },
+            "Pre-Production": {
+                "uksouth": {
+                    "uri": "https://azsuusapvmdiags.blob.core.windows.net/"
+                },
+                "ukwest": {
+                    "uri": "https://azwuusapvmdiags.blob.core.windows.net/"
+                }
+            },
+            "Production": {
+                "uksouth": {
+                    "uri": "https://azsupsapvmdiags.blob.core.windows.net/"
+                },
+                "ukwest": {
+                    "uri": "https://azwupsapvmdiags.blob.core.windows.net/"
+                }
+            }
+        },
+        "bootDiagnostics": {
+            "enabled": true,
+            "storageUri": "[variables('storageUri')[parameters('subscription')][parameters('location')].uri]"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "osDisk": {
+            "value": "[variables('bootDiagnostics')]",
+            "type": "object"
+        }
+    }
+}
