@@ -516,7 +516,7 @@
                 ]
             }
         },
-        "disks": "[variables(parameters('subscription'))[parameters('role')].disks]"
+        "disks": "[variables(parameters('subscription'))[parameters('role')]]"
     },
     "resources": [],
     "outputs": {
