@@ -52,7 +52,7 @@
                         "value": "VMNAMETEST"
                     },
                     "subscription": {
-                        "value": "DevTest"
+                        "value": "Dev Test"
                     },
                     "role": {
                         "value": "CRM"
