@@ -4,7 +4,8 @@
     "parameters": {
         "name": {
             "type": "string",
-            "maxLength": 3
+            "maxLength": 3,
+            "minLength": 3
         }    
     },
     "variables": {
