@@ -11,7 +11,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "https://raw.githubusercontent.com/simonhutson/ARMTest/master/vm.osdisk.json",
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.osdisk.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
