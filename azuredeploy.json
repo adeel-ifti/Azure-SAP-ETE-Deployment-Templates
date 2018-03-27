@@ -4,8 +4,7 @@
     "parameters": {
         "name": {
             "type": "string",
-            "maxLength": 3,
-            "minLength": 3
+            "maxLength": 3
         }    
     },
     "variables": {
@@ -31,6 +30,32 @@
                     },
                     "osImage": {
                         "value": "RHEL 7.3 BYOS 2018-03-21"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat('vm.storageprofile.datadisks.template.', variables('uniqueString'))]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "vmName": {
+                        "value": "vmname"
+                    },
+                    "subscription": {
+                        "value": "Dev Test"
+                    },
+                    "role": {
+                        "value": "CRM"
                     }
                 }
             }
@@ -107,7 +132,6 @@
                 }
             }
         }
-
     ],
     "outputs": {
         "uniqueString": {
