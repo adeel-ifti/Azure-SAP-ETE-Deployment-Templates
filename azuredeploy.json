@@ -14,7 +14,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat('vm.osdisk.template.', variables('uniqueString'))",
+            "name": "['vm.osdisk.template')",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -43,7 +43,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat('vm.bootdiagnostics.template.', variables('uniqueString'))",
+            "name": "['vm.bootdiagnostics.template')",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -64,5 +64,10 @@
             }
         }
     ],
-    "outputs": {}
+    "outputs": {
+        "uniqueString": {
+            "value": "[variables('uniqueString')]",
+            "type": "string"
+        }
+    }
 }
