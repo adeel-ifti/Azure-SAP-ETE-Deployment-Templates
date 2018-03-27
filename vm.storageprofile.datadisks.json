@@ -518,12 +518,12 @@
                 }
             }
         },
-        "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')]]"
+        "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks]"
     },
     "resources": [],
     "outputs": {
         "hardwareProfile": {
-            "value": "[variables('disks')]",
+            "value": "[variables('disks')[0]]",
             "type": "object"
         }
     }
