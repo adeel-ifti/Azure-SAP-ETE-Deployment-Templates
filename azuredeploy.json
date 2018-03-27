@@ -32,6 +32,29 @@
                     }
                 }
             }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "vm.bootdiagnostics.template",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.bootdiagnostics.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "subscription": {
+                        "value": "Dev Test"
+                    },
+                    "location": {
+                        "value": "uksouth"
+                    }
+                }
+            }
         }
     ],
     "outputs": {}
