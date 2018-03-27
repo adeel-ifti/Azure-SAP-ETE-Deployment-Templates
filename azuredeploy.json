@@ -37,6 +37,32 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
+            "name": "[concat('vm.storageprofile.datadisks.template.', variables('uniqueString'))]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "vmName": {
+                        "value": "VMNAMETEST"
+                    },
+                    "subscription": {
+                        "value": "DevTest"
+                    },
+                    "role": {
+                        "value": "CRM"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
             "name": "[concat('vm.storageprofile.imagereference.template.', variables('uniqueString'))]",
             "properties": {
                 "mode": "Incremental",
