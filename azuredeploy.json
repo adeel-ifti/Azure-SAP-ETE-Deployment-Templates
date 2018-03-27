@@ -14,11 +14,11 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat(variables('uniqueString'), '.vm.osdisk.template')]",
+            "name": "[concat(variables('uniqueString'), '.vm.storageprofile.osdisk.template')]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.osdisk.json')]",
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
@@ -28,6 +28,26 @@
                     "vmName": {
                         "value": "VMNAMETEST"
                     },
+                    "osImage": {
+                        "value": "RHEL 7.3 BYOS 2018-03-21"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat(variables('uniqueString'), '.vm.storageprofile.imagereference.template')]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
                     "subscription": {
                         "value": "Dev Test"
                     },
