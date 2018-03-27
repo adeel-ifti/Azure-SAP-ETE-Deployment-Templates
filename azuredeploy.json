@@ -14,7 +14,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "vm.osdisk.template",
+            "name": "[concat('vm.osdisk.template.', variables('uniqueString'))",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -43,7 +43,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "vm.bootdiagnostics.template",
+            "name": "[concat('vm.bootdiagnostics.template.', variables('uniqueString'))",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
