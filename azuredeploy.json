@@ -14,7 +14,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "vm.osdisk.template",
+            "name": "[concat('vm.osdisk.template.', variables('uniquesString'))]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
