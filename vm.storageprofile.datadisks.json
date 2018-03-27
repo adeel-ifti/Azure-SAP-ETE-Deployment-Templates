@@ -518,7 +518,7 @@
                 }
             }
         },
-        "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')]]"
+        "disks": "[variables('diskSizes')[parameters('subscription')]]"
     },
     "resources": [],
     "outputs": {
