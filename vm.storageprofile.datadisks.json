@@ -516,7 +516,7 @@
                 ]
             }
         },
-        "disks": "[variables(parameters('subscription'))[parameters('role')]]"
+        "disks": "[string('Dev Test')[parameters('role')]]"
     },
     "resources": [],
     "outputs": {
