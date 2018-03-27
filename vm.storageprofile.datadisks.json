@@ -30,514 +30,500 @@
         }
     },
     "variables": {
-        "Dev Test": {
-            "ISU": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 1023
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "CRM": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "PIC": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "BWA": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "MOB": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "EWM": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 127
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "JVA": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "CEV": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "PIN": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "NGW": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 127
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            }
-        },
-        "Pre-Production": {
-            "ISU": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 1023
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "CRM": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "PIC": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "BWA": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "MOB": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "EWM": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 127
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "JVA": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "CEV": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "PIN": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "NGW": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 127
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            }
-        },
-        "Production": {
-            "ISU": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 1023
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "CRM": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "PIC": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "BWA": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "MOB": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "EWM": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 127
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "JVA": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "CEV": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 511
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "PIN": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            },
-            "NGW": {
-                "disks": [
-                    {
-                        "diskSizeGB": 63
-                    },
-                    {
-                        "diskSizeGB": 127
-                    },
-                    {
-                        "diskSizeGB": 31
-                    },
-                    {
-                        "diskSizeGB": 63
-                    }
-                ]
-            }
-        },
-        "disks1": "[variables(parameters('subscription'))[parameters('role')].disks]",
-        "dataDisks": {
-            "value": {
-                "copy": [
-                    {
-                        "name": "dataDisks",
-                        "count": "[length(variables('disks1'))]",
-                        "input": {
-                            "lun": "[copyIndex('dataDisks')]",
-                            "createOption": "Empty",
-                            "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                            "diskSizeGB": "[variables('disks1')[copyIndex('dataDisks')].diskSizeGB]"
+        "diskSizes": {
+            "Dev Test": {
+                "ISU": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 1023
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
                         }
-                    }
-                ]
+                    ]
+                },
+                "CRM": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "PIC": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "BWA": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "MOB": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "EWM": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 127
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "JVA": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "CEV": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "PIN": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "NGW": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 127
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                }
+            },
+            "Pre-Production": {
+                "ISU": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 1023
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "CRM": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "PIC": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "BWA": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "MOB": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "EWM": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 127
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "JVA": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "CEV": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "PIN": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "NGW": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 127
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                }
+            },
+            "Production": {
+                "ISU": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 1023
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "CRM": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "PIC": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "BWA": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "MOB": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "EWM": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 127
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "JVA": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "CEV": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 511
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "PIN": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                },
+                "NGW": {
+                    "disks": [
+                        {
+                            "diskSizeGB": 63
+                        },
+                        {
+                            "diskSizeGB": 127
+                        },
+                        {
+                            "diskSizeGB": 31
+                        },
+                        {
+                            "diskSizeGB": 63
+                        }
+                    ]
+                }
             }
-        }
+        },
+        "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks]"
     },
     "resources": [],
     "outputs": {
         "hardwareProfile": {
-            "value": "[variables('disks1')]",
+            "value": "[variables('disks')]",
             "type": "object"
         }
     }
