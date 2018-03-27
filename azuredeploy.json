@@ -14,7 +14,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "['vm.osdisk.template')",
+            "name": "vm.osdisk.template",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -43,7 +43,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "['vm.bootdiagnostics.template')",
+            "name": "vm.bootdiagnostics.template",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
