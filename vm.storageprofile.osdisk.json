@@ -83,7 +83,6 @@
         "SLES SAP BYOS 12-SP2": {
             "osDisk": {
                 "osType": "Linux",
-                "osType": "Linux",
                 "name": "[concat(parameters('vmName'), '-osdisk')]",
                 "caching": "ReadWrite",
                 "createOption": "FromImage",
