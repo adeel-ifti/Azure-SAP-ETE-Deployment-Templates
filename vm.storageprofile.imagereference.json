@@ -82,8 +82,7 @@
                 "sku": "12-SP2",
                 "offer": "SLES-SAP-BYOS",
                 "publisher": "SUSE",
-                "version": "latest",
-                "OSType": "Linux"
+                "version": "latest"
             }
         },
         "SLES SAP 12-SP3": {
