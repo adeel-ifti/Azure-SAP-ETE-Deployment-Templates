@@ -1,0 +1,79 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscription": {
+            "type": "string",
+            "allowedValues": [
+                "Dev Test",
+                "Pre-Production",
+                "Production"
+            ]
+        },
+        "role": {
+            "type": "string",
+            "allowedValues": [
+                "ISU",
+                "CRM",
+                "PIC",
+                "BWA",
+                "MOB",
+                "EWM",
+                "JVA",
+                "CEV",
+                "PIN",
+                "NGW"
+            ]
+        }
+    },
+    "variables": {
+        "vmSize": {
+            "Dev Test": {
+                "ISU": "Standard_E4s_v3",
+                "CRM": "Standard_E4s_v3",
+                "PIC": "Standard_D4s_v3",
+                "BWA": "Standard_D4s_v3",
+                "MOB": "Standard_E2s_v3",
+                "EWM": "Standard_E2s_v3",
+                "JVA": "Standard_E2s_v3",
+                "CEV": "Standard_E2s_v3",
+                "PIN": "Standard_E2s_v3",
+                "NGW": "Standard_E2s_v3"
+            },
+            "Pre-Production": {
+                "ISU": "Standard_E4s_v3",
+                "CRM": "Standard_E4s_v3",
+                "PIC": "Standard_D4s_v3",
+                "BWA": "Standard_D4s_v3",
+                "MOB": "Standard_E2s_v3",
+                "EWM": "Standard_E2s_v3",
+                "JVA": "Standard_E2s_v3",
+                "CEV": "Standard_E2s_v3",
+                "PIN": "Standard_E2s_v3",
+                "NGW": "Standard_E2s_v3"
+            },
+            "Production": {
+                "ISU": "Standard_E4s_v3",
+                "CRM": "Standard_E4s_v3",
+                "PIC": "Standard_D4s_v3",
+                "BWA": "Standard_D4s_v3",
+                "MOB": "Standard_E2s_v3",
+                "EWM": "Standard_E2s_v3",
+                "JVA": "Standard_E2s_v3",
+                "CEV": "Standard_E2s_v3",
+                "PIN": "Standard_E2s_v3",
+                "NGW": "Standard_E2s_v3"
+            }
+        },
+        "hardwareProfile": {
+            "vmSize": "[variables('vmSize')[parameters('subscription')][parameters('role')]]"
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "hardwareProfile": {
+            "value": "[variables('hardwareProfile')]",
+            "type": "object"
+        }
+    }
+}
