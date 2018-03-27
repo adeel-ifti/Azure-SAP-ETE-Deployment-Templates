@@ -8,7 +8,7 @@
         }    
     },
     "variables": {
-        "uniqueString": "[uniqueString(subscription().tenantId, subscription().id, resourceGroup().id, deployment().name, parameters('name'))]"
+        "uniqueString": "[uniqueString(subscription().tenantId, subscription().id, resourceGroup().id, parameters('name'))]"
     },
     "resources": [
         {
