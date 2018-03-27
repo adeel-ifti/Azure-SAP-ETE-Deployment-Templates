@@ -14,7 +14,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat(variables('uniqueString'), '.vm.storageprofile.osdisk.template')]",
+            "name": "[concat('vm.storageprofile.osdisk.template.', variables('uniqueString'))]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -37,7 +37,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat(variables('uniqueString'), '.vm.storageprofile.imagereference.template')]",
+            "name": "[concat('vm.storageprofile.imagereference.template.', variables('uniqueString'))]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -63,7 +63,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat(variables('uniqueString'), '.vm.bootdiagnostics.template')]",
+            "name": "[concat('vm.bootdiagnostics.template.', variables('uniqueString'))]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -86,7 +86,7 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat(variables('uniqueString'), '.vm.vmsize.template')]",
+            "name": "[concat('vm.vmsize.template.', variables('uniqueString'))]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
