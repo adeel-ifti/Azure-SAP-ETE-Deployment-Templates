@@ -516,28 +516,12 @@
                 ]
             }
         },
-        "disks": "[variables(parameters('subscription'))[parameters('role')].disks]",
-        "dataDisks": {
-            "value": {
-                "copy": [
-                    {
-                        "name": "dataDisks",
-                        "count": "[length(variables('disks'))]",
-                        "input": {
-                            "lun": "[copyIndex('dataDisks')]",
-                            "createOption": "Empty",
-                            "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                            "diskSizeGB": "[variables('disks')[copyIndex('dataDisks')].diskSizeGB]"
-                        }
-                    }
-                ]
-            }
-        }
+        "disks": "[variables(parameters('subscription'))[parameters('role')].disks]"
     },
     "resources": [],
     "outputs": {
         "hardwareProfile": {
-            "value": "[variables('dataDisks')]",
+            "value": "[variables('disks')]",
             "type": "object"
         }
     }
