@@ -14,7 +14,7 @@
         "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', variables('uniqueString'))]",
         "vm.bootdiagnostics.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.bootdiagnostics.json')]",
         "vm.hardwareProfile.templatename": "[concat('vm.hardwareProfile.', variables('uniqueString'))]",
-        "vm.hardwareProfile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.hardwareProfile.json')]"
+        "vm.hardwareProfile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.hardwareprofile.json')]"
     },
     "resources": [
         {
