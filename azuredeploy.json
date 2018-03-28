@@ -100,20 +100,8 @@
         }
     ],
     "outputs": {
-        "uniqueString": {
-            "value": "[variables('uniqueString')]",
-            "type": "string"
-        },
-        "osDisk": {
-            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.osDisk.value]",
-            "type": "object"
-        },
-        "dataDisks": {
-            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.dataDisks.value]",
-            "type": "array"
-        },
-        "imageReference": {
-            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.imageReference.value]",
+        "storageProfile": {
+            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.storageProfile.value]",
             "type": "object"
         },
         "bootDiagnostics": {
