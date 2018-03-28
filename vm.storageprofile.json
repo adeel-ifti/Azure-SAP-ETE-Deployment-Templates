@@ -143,18 +143,6 @@
         }
     ],
     "outputs": {
-        "osDisk": {
-            "value": "[reference(variables('vm.storageprofile.osdisk.templatename')).outputs.osDisk.value]",
-            "type": "object"
-        },
-        "dataDisks": {
-            "value": "[reference(variables('vm.storageprofile.datadisks.templatename')).outputs.dataDisks.value]",
-            "type": "array"
-        },
-        "imageReference": {
-            "value": "[reference(variables('vm.storageprofile.imagereference.templatename')).outputs.imageReference.value]",
-            "type": "object"
-        },
         "storageProfile": {
             "type": "object",
             "value": {
