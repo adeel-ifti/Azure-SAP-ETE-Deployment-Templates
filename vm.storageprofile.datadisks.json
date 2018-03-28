@@ -528,7 +528,7 @@
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
                         "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                        "size": "31"
+                        "size": "[variables('disks')[copyIndex('dataDisks')].size]"
                     }
                 }
             ]
