@@ -5,51 +5,43 @@
         "name": {
             "type": "string",
             "maxLength": 3
-        }    
+        }
     },
     "variables": {
-        "uniqueString": "[uniqueString(resourceGroup().id, parameters('name'))]"
+        "uniqueString": "[uniqueString(resourceGroup().id, parameters('name'))]",
+        "vm.storageprofile.templatename": "[concat('vm.storageprofile.osdisk.', variables('uniqueString'))]",
+        "vm.storageprofile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.json')]",
+        "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', variables('uniqueString'))]",
+        "vm.bootdiagnostics.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.bootdiagnostics.json')]",
+        "vm.hardwareProfile.templatename": "[concat('vm.hardwareProfile.', variables('uniqueString'))]",
+        "vm.hardwareProfile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.hardwareProfile.json')]"
     },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat('vm.storageprofile.osdisk.template.', variables('uniqueString'))]",
+            "name": "[variables('vm.storageprofile.templatename')]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
+                    "uri": "[variables('vm.storageprofile.templateuri')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
+                    "uniqueString": {
+                        "value": "[variables('uniqueString')]"
+                    },
                     "vmName": {
                         "value": "vmname"
                     },
+                    "location": {
+                        "value": "uksouth"
+                    },
                     "osImage": {
                         "value": "RHEL 7.3 BYOS 2018-03-21"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "[concat('vm.storageprofile.datadisks.template.', variables('uniqueString'))]",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "debugSetting": {
-                    "detailLevel": "requestContent, responseContent"
-                },
-                "parameters": {
-                    "vmName": {
-                        "value": "vmname"
                     },
                     "subscription": {
                         "value": "Dev Test"
@@ -63,37 +55,11 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat('vm.storageprofile.imagereference.template.', variables('uniqueString'))]",
+            "name": "[variables('vm.bootdiagnostics.templatename')]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "debugSetting": {
-                    "detailLevel": "requestContent, responseContent"
-                },
-                "parameters": {
-                    "subscription": {
-                        "value": "Dev Test"
-                    },
-                    "location": {
-                        "value": "uksouth"
-                    },
-                    "osImage": {
-                        "value": "RHEL 7.3"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "[concat('vm.bootdiagnostics.template.', variables('uniqueString'))]",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.bootdiagnostics.json')]",
+                    "uri": "[variables('vm.bootdiagnostics.templateuri')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
@@ -112,11 +78,11 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[concat('vm.vmsize.template.', variables('uniqueString'))]",
+            "name": "[variables('vm.hardwareProfile.templatename')]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.vmsize.json')]",
+                    "uri": "[variables('vm.hardwareProfile.templateuri')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
@@ -137,6 +103,26 @@
         "uniqueString": {
             "value": "[variables('uniqueString')]",
             "type": "string"
+        },
+        "osDisk": {
+            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.osDisk]",
+            "type": "object"
+        },
+        "dataDisks": {
+            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.dataDisks]",
+            "type": "object"
+        },
+        "imageReference": {
+            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.imageReference]",
+            "type": "object"
+        },
+        "bootDiagnostics": {
+            "value": "[reference(variables('vm.bootdiagnostics.templatename')).outputs.bootDiagnostics]",
+            "type": "object"
+        },
+        "hardwareProfile": {
+            "value": "[reference(variables('vm.hardwareProfile.templatename')).outputs.hardwareProfile]",
+            "type": "object"
         }
     }
 }
