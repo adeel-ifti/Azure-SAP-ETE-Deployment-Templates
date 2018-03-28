@@ -519,7 +519,7 @@
             }
         },
         "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks]",
-        "disksCount": "[length(variables('disks'))]",
+        "disksCount": "[int(length(variables('disks')))]",
         "dataDisksObj": {
             "copy": [
                 {
