@@ -544,7 +544,7 @@
             "type": "array"
         },
         "length": {
-            "value": "[length(variables('disksArray'))]",
+            "value": "[length(variables('dataDisksArray'))]",
             "type": "int"
         }
     }
