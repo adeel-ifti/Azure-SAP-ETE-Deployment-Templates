@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string",
+            "maxLength": 3
+        }    
+    },
+    "variables": {
+        "uniqueString": "[uniqueString(resourceGroup().id, parameters('name'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[concat('vm.storageprofile.datadisks.template.', variables('uniqueString'))]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "vmName": {
+                        "value": "vmname"
+                    },
+                    "subscription": {
+                        "value": "Dev Test"
+                    },
+                    "role": {
+                        "value": "CRM"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "uniqueString": {
+            "value": "[variables('uniqueString')]",
+            "type": "string"
+        }
+    }
+}
