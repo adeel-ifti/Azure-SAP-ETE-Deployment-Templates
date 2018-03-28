@@ -149,7 +149,7 @@
         },
         "dataDisks": {
             "value": "[reference(variables('vm.storageprofile.datadisks.templatename')).outputs.dataDisks.value]",
-            "type": "object"
+            "type": "array"
         },
         "imageReference": {
             "value": "[reference(variables('vm.storageprofile.imagereference.templatename')).outputs.imageReference.value]",
