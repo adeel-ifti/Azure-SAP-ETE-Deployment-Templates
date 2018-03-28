@@ -518,13 +518,13 @@
                 }
             }
         },
-        "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')]]"
+        "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks]"
     },
     "resources": [],
     "outputs": {
         "dataDisks": {
             "value": "[variables('disks')]",
-            "type": "object"
+            "type": "array"
         }
     }
 }
