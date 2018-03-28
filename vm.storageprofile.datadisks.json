@@ -522,13 +522,13 @@
         "dataDisksObj": {
             "copy": [
                 {
-                    "name": "dataDisks",
+                    "name": "copyIndexDataDisks",
                     "count": 4,
                     "input": {
-                        "lun": "[copyIndex('dataDisks')]",
+                        "lun": "[copyIndex('copyIndexDataDisks')]",
                         "createOption": "Empty",
-                        "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                        "size": "[variables('disks')[copyIndex('dataDisks')].size]"
+                        "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('copyIndexDataDisks'),2,'0'))]",
+                        "size": "[variables('disks')[copyIndex('copyIndexDataDisks')].size]"
                     }
                 }
             ]
