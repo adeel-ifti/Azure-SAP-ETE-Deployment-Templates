@@ -518,13 +518,12 @@
                 }
             }
         },
-        "disks": "[array(variables('diskSizes')[parameters('subscription')][parameters('role')].disks)]",
-        "disksCount": "[length(variables('disks'))]",
+        "dataDisksArray": "[array(variables('diskSizes')[parameters('subscription')][parameters('role')].disks)]",
         "dataDisksObj": {
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(variables('disks'))]",
+                    "count": "[length(variables('dataDisksArray'))]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
@@ -541,11 +540,11 @@
             "type": "object"
         },
         "disks": {
-            "value": "[variables('disks')]",
+            "value": "[variables('dataDisksArray')]",
             "type": "array"
         },
         "length": {
-            "value": "[length(variables('disks'))]",
+            "value": "[length(variables('disksArray'))]",
             "type": "int"
         }
     }
