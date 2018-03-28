@@ -144,15 +144,15 @@
     ],
     "outputs": {
         "osDisk": {
-            "value": "[reference(variables('vm.storageprofile.osdisk.templatename')).outputs.osDisk]",
+            "value": "[reference(variables('vm.storageprofile.osdisk.templatename')).outputs.osDisk.value]",
             "type": "object"
         },
         "dataDisks": {
-            "value": "[reference(variables('vm.storageprofile.datadisks.templatename')).outputs.dataDisks]",
+            "value": "[reference(variables('vm.storageprofile.datadisks.templatename')).outputs.dataDisks.value]",
             "type": "object"
         },
         "imageReference": {
-            "value": "[reference(variables('vm.storageprofile.imagereference.templatename')).outputs.imageReference]",
+            "value": "[reference(variables('vm.storageprofile.imagereference.templatename')).outputs.imageReference.value]",
             "type": "object"
         }
     }
