@@ -518,16 +518,16 @@
                 }
             }
         },
-        "dataDisksArray": "[array(variables('diskSizes')[parameters('subscription')][parameters('role')].disks)]",
         "dataDisksObj": {
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(array(variables('diskSizes')[parameters('subscription')][parameters('role')].disks))]",
+                    "count": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
-                        "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]"
+                        "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
+                        "size": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks[copyIndex('dataDisks')].size]"
                     }
                 }
             ]
@@ -535,17 +535,9 @@
     },
     "resources": [],
     "outputs": {
-        "dataDisks": {
+        "imageReference": {
             "value": "[variables('dataDisksObj')]",
             "type": "object"
-        },
-        "disks": {
-            "value": "[variables('dataDisksArray')]",
-            "type": "array"
-        },
-        "length": {
-            "value": "[length(variables('dataDisksArray'))]",
-            "type": "int"
         }
     }
 }
