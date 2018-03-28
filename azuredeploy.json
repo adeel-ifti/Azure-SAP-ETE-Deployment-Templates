@@ -105,23 +105,23 @@
             "type": "string"
         },
         "osDisk": {
-            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.osDisk]",
+            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.osDisk.value]",
             "type": "object"
         },
         "dataDisks": {
-            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.dataDisks]",
+            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.dataDisks.value]",
             "type": "object"
         },
         "imageReference": {
-            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.imageReference]",
+            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.imageReference.value]",
             "type": "object"
         },
         "bootDiagnostics": {
-            "value": "[reference(variables('vm.bootdiagnostics.templatename')).outputs.bootDiagnostics]",
+            "value": "[reference(variables('vm.bootdiagnostics.templatename')).outputs.bootDiagnostics.value]",
             "type": "object"
         },
         "hardwareProfile": {
-            "value": "[reference(variables('vm.hardwareProfile.templatename')).outputs.hardwareProfile]",
+            "value": "[reference(variables('vm.hardwareProfile.templatename')).outputs.hardwareProfile.value]",
             "type": "object"
         }
     }
