@@ -524,7 +524,7 @@
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[int(variables('disksCount'))]",
+                    "count": "[length(variables('disks'))]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
