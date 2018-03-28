@@ -35,160 +35,160 @@
                 "ISU": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 1023
+                            "size": 1023
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "CRM": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "PIC": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "BWA": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "MOB": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "EWM": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 127
+                            "size": 127
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "JVA": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "CEV": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "PIN": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "NGW": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 127
+                            "size": 127
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 }
@@ -197,160 +197,160 @@
                 "ISU": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 1023
+                            "size": 1023
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "CRM": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "PIC": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "BWA": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "MOB": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "EWM": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 127
+                            "size": 127
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "JVA": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "CEV": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "PIN": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "NGW": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 127
+                            "size": 127
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 }
@@ -359,160 +359,160 @@
                 "ISU": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 1023
+                            "size": 1023
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "CRM": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "PIC": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "BWA": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "MOB": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "EWM": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 127
+                            "size": 127
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "JVA": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "CEV": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 511
+                            "size": 511
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "PIN": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 },
                 "NGW": {
                     "disks": [
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         },
                         {
-                            "diskSizeGB": 127
+                            "size": 127
                         },
                         {
-                            "diskSizeGB": 31
+                            "size": 31
                         },
                         {
-                            "diskSizeGB": 63
+                            "size": 63
                         }
                     ]
                 }
@@ -529,7 +529,7 @@
                             "lun": "[copyIndex('dataDisks')]",
                             "createOption": "Empty",
                             "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                            "diskSizeGB": "[variables('disks')[copyIndex('dataDisks')].diskSizeGB]"
+                            "size": "[variables('disks')[copyIndex('dataDisks')].size]"
                         }
                     }
                 ]
