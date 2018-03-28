@@ -518,13 +518,24 @@
                 }
             }
         },
-        "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks]"
+        "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks]",
+        "dataDisksObj": {
+            "copy": [
+                {
+                    "name": "dataDisks",
+                    "count": "[length(variables('disks'))]",
+                    "input": {
+                        "createOption": "Empty"
+                    }
+                }
+            ]
+        }
     },
     "resources": [],
     "outputs": {
-        "dataDisks": {
-            "value": "[variables('disks')]",
-            "type": "array"
+        "imageReference": {
+            "value": "[variables('dataDisksObj')]",
+            "type": "object"
         }
     }
 }
