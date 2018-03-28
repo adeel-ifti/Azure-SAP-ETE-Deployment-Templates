@@ -542,10 +542,6 @@
         "disks": {
             "value": "[variables('disks')]",
             "type": "array"
-        },
-        "length": {
-            "value": "[length(variables('disks'))]",
-            "type": "integer"
         }
     }
 }
