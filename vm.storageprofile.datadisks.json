@@ -535,9 +535,17 @@
     },
     "resources": [],
     "outputs": {
-        "imageReference": {
+        "dataDisks": {
             "value": "[variables('dataDisksObj')]",
             "type": "object"
+        },
+        "disks": {
+            "value": "[variables('disks')]",
+            "type": "array"
+        },
+        "length": {
+            "value": "[length(variables('disks'))]",
+            "type": "integer"
         }
     }
 }
