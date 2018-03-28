@@ -536,8 +536,8 @@
     "resources": [],
     "outputs": {
         "dataDisks": {
-            "value": "[variables('dataDisksObj')]",
-            "type": "object"
+            "value": "[variables('dataDisksObj')[string('dataDisks')]]",
+            "type": "array"
         }
     }
 }
