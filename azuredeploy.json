@@ -8,7 +8,7 @@
         }
     },
     "variables": {
-        "uniqueString": "[uniqueString(resourceGroup().id, parameters('name'))]",
+        "uniqueString": "[parameters('name')]",
         "vm.storageprofile.templatename": "[concat('vm.storageprofile.', variables('uniqueString'))]",
         "vm.storageprofile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.json')]",
         "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', variables('uniqueString'))]",
