@@ -526,7 +526,8 @@
                     "count": "[length(variables('disks'))]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
-                        "createOption": "Empty"
+                        "createOption": "Empty",
+                        "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]"
                     }
                 }
             ]
