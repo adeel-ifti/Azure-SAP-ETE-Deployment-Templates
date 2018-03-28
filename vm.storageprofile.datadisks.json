@@ -519,11 +519,12 @@
             }
         },
         "disks": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks]",
+        "disksCount": "[length(variables('disks'))]",
         "dataDisksObj": {
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(variables('disks'))]",
+                    "count": "[variables('disksCount')]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
