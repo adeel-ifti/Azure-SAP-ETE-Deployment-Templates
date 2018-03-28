@@ -59,11 +59,11 @@
     },
     "variables": {
         "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', parameters('uniqueString'))]",
-        "vm.storageprofile.osdisk.uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
+        "vm.storageprofile.osdisk.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
         "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', parameters('uniqueString'))]",
-        "vm.storageprofile.datadisks.uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
+        "vm.storageprofile.datadisks.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
         "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', parameters('uniqueString'))]",
-        "vm.storageprofile.imagereference.uri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]"
+        "vm.storageprofile.imagereference.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]"
     },
     "resources": [
         {
@@ -73,7 +73,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('vm.storageprofile.osdisk.uri')]",
+                    "uri": "[variables('vm.storageprofile.osdisk.templateuri')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
@@ -96,7 +96,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('vm.storageprofile.datadisks.uri')]",
+                    "uri": "[variables('vm.storageprofile.datadisks.templateuri')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
@@ -122,7 +122,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('vm.storageprofile.imagereference.uri')]",
+                    "uri": "[variables('vm.storageprofile.imagereference.templateuri')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
