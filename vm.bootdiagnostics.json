@@ -52,7 +52,7 @@
     },
     "resources": [],
     "outputs": {
-        "osDisk": {
+        "bootDiagnostics": {
             "value": "[variables('bootDiagnostics')]",
             "type": "object"
         }
