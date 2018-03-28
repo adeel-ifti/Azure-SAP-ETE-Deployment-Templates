@@ -535,7 +535,7 @@
     },
     "resources": [],
     "outputs": {
-        "imageReference": {
+        "dataDisks": {
             "value": "[variables('dataDisksObj')]",
             "type": "object"
         }
