@@ -535,5 +535,10 @@
         }
     },
     "resources": [],
-    "outputs": {}
+    "outputs": {
+        "imageReference": {
+            "value": "[variables('dataDisksObj')]",
+            "type": "object"
+        }
+    }
 }
