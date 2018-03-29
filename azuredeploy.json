@@ -9,22 +9,18 @@
     },
     "variables": {
         "uniqueString": "[parameters('name')]",
-        "vm.storageprofile.templatename": "[concat('vm.storageprofile.', variables('uniqueString'))]",
-        "vm.storageprofile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.json')]",
-        "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', variables('uniqueString'))]",
-        "vm.bootdiagnostics.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.bootdiagnostics.json')]",
-        "vm.hardwareProfile.templatename": "[concat('vm.hardwareProfile.', variables('uniqueString'))]",
-        "vm.hardwareProfile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.hardwareprofile.json')]"
+        "vm.templatename": "[concat('vm.', variables('uniqueString'))]",
+        "vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.json')]"
     },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[variables('vm.storageprofile.templatename')]",
+            "name": "[variables('vm.templatename')]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('vm.storageprofile.templateuri')]",
+                    "uri": "[variables('vm.templateuri')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
@@ -51,65 +47,11 @@
                     }
                 }
             }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "[variables('vm.bootdiagnostics.templatename')]",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('vm.bootdiagnostics.templateuri')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "debugSetting": {
-                    "detailLevel": "requestContent, responseContent"
-                },
-                "parameters": {
-                    "subscription": {
-                        "value": "Dev Test"
-                    },
-                    "location": {
-                        "value": "uksouth"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "[variables('vm.hardwareProfile.templatename')]",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('vm.hardwareProfile.templateuri')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "debugSetting": {
-                    "detailLevel": "requestContent, responseContent"
-                },
-                "parameters": {
-                    "subscription": {
-                        "value": "Dev Test"
-                    },
-                    "role": {
-                        "value": "CRM"
-                    }
-                }
-            }
         }
     ],
     "outputs": {
-        "storageProfile": {
-            "value": "[reference(variables('vm.storageprofile.templatename')).outputs.storageProfile.value]",
-            "type": "object"
-        },
-        "bootDiagnostics": {
-            "value": "[reference(variables('vm.bootdiagnostics.templatename')).outputs.bootDiagnostics.value]",
-            "type": "object"
-        },
-        "hardwareProfile": {
-            "value": "[reference(variables('vm.hardwareProfile.templatename')).outputs.hardwareProfile.value]",
+        "vm": {
+            "value": "[reference(variables('vm.templatename')).outputs.vm.value]",
             "type": "object"
         }
     }
