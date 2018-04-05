@@ -10,7 +10,9 @@
     "variables": {
         "uniqueString": "[parameters('name')]",
         "vm.templatename": "[concat('vm.', variables('uniqueString'))]",
-        "vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.json')]"
+        "vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.json')]",
+        "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueString'))]",
+        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.json')]"
     },
     "resources": [
         {
@@ -47,11 +49,55 @@
                     }
                 }
             }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[variables('networkinterfaces.templatename')]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('networkinterfaces.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "uniqueString": {
+                        "value": "[variables('uniqueString')]"
+                    },
+                    "primary": {
+                        "value": true
+                    },
+                    "ipAddresses": [
+                        {
+                            "ipAddress": ""
+                        },
+                        {
+                            "ipAddress": ""
+                        }
+                    ],
+                    "location": {
+                        "value": "uksouth"
+                    },
+                    "subscription": {
+                        "value": "Dev Test"
+                    },
+                    "role": {
+                        "value": "CRM"
+                    }
+                }
+            }
         }
     ],
     "outputs": {
         "vm": {
             "value": "[reference(variables('vm.templatename')).outputs.vm.value]",
+            "type": "object"
+        },
+        "networkInterfaces": {
+            "value": "[reference(variables('networkinterfaces.templatename')).outputs.networkInterfaces.value]",
             "type": "object"
         }
     }
