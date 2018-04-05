@@ -36,7 +36,7 @@
                         "value": "vmname"
                     },
                     "location": {
-                        "value": "uksouth"
+                        "value": "west"
                     },
                     "osImage": {
                         "value": "RHEL 7.3 BYOS 2018-03-21"
@@ -79,7 +79,7 @@
                         }
                     ],
                     "location": {
-                        "value": "uksouth"
+                        "value": "ukwest"
                     },
                     "subscription": {
                         "value": "Dev Test"
