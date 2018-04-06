@@ -101,7 +101,7 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "ipAdresses": {
+                    "ipAddresses": {
                         "value": "[parameters('ipAddresses')]"
                     },
                     "subscription": {
