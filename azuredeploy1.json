@@ -17,7 +17,8 @@
     "variables": {
         "uniqueString": "[parameters('name')]",
         "networkinterfaces.templatename": "[concat('networkinterfaces1.', variables('uniqueString'))]",
-        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces1.json')]"
+        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces1.json')]",
+        "ipAddresses": "[variables('ipAddresses')]"
     },
     "resources": [
         {
@@ -30,7 +31,7 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "ipAddresses": "[parameters('ipAddresses')]"
+                    "ipAddresses": "[variables('ipAddresses')]"
                 },
                 "template": {
                     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -38,7 +39,10 @@
                     "parameters": {
                         "ipAddresses": {
                             "type": "array",
-                            "defaultValue": []
+                            "defaultValue": [
+                                "192.168.0.2",
+                                "10.0.0.2"
+                            ]
                         }
                     },
                     "variables": {},
