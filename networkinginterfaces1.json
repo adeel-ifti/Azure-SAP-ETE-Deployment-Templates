@@ -8,5 +8,10 @@
     },
     "variables": {},
     "resources": [],
-    "outputs": {}
+    "outputs": {
+        "bootDiagnostics": {
+            "value": "[parameters('ipAddresses')]",
+            "type": "string"
+        }
+    }
 }
