@@ -3,14 +3,16 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "ipAddresses": {
-            "type":"string"
+            "type": "string"
         }
     },
-    "variables": {},
+    "variables": {
+        "ipAddresses": "[parameters('ipAddresses')]"
+    },
     "resources": [],
     "outputs": {
         "bootDiagnostics": {
-            "value": "[parameters('ipAddresses')]",
+            "value": "[variables('ipAddresses')]",
             "type": "string"
         }
     }
