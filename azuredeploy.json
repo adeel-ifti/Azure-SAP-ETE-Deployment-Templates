@@ -8,10 +8,10 @@
         }
     },
     "variables": {
-        "uniqueString": "[parameters('name')]",
-        "vm.templatename": "[concat('vm.', variables('uniqueString'))]",
+        "uniqueDeploymentString": "[parameters('name')]",
+        "vm.templatename": "[concat('vm.', variables('uniqueDeploymentString'))]",
         "vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.json')]",
-        "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueString'))]",
+        "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueDeploymentString'))]",
         "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.json')]"
     },
     "resources": [
@@ -29,8 +29,8 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "uniqueString": {
-                        "value": "[variables('uniqueString')]"
+                    "uniqueDeploymentString": {
+                        "value": "[variables('uniqueDeploymentString')]"
                     },
                     "vmName": {
                         "value": "vmname"
@@ -64,15 +64,15 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "uniqueString": {
-                        "value": "[variables('uniqueString')]"
+                    "uniqueDeploymentString": {
+                        "value": "[variables('uniqueDeploymentString')]"
                     },
                     "primary": {
                         "value": true
                     },
                     "ipAddresses": {
                         "value": [
-                            "192.168.0.1",
+                            "",
                             "10.0.0.1"
                         ]
                     },
@@ -89,14 +89,5 @@
             }
         }
     ],
-    "outputs": {
-        "vm": {
-            "value": "[reference(variables('vm.templatename')).outputs.vm.value]",
-            "type": "object"
-        },
-        "networkInterfaces": {
-            "value": "[reference(variables('networkinterfaces.templatename')).outputs.networkInterfaces.value]",
-            "type": "object"
-        }
-    }
+    "outputs": {}
 }
