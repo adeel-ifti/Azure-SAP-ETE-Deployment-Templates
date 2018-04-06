@@ -8,10 +8,5 @@
     },
     "variables": {},
     "resources": [],
-    "outputs": {
-        "networkInterfaces": {
-            "type": "array",
-            "value":  "[parameters('ipAddresses')]"
-        }
-    }
+    "outputs": {}
 }
