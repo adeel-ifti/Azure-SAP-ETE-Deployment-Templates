@@ -36,7 +36,7 @@
                         "value": "vmname"
                     },
                     "location": {
-                        "value": "ukwest"
+                        "value": "west"
                     },
                     "osImage": {
                         "value": "RHEL 7.3 BYOS 2018-03-21"
@@ -70,14 +70,16 @@
                     "primary": {
                         "value": true
                     },
-                    "ipAddresses": [
-                        {
-                            "ipAddress": ""
-                        },
-                        {
-                            "ipAddress": ""
-                        }
-                    ],
+                    "ipAddresses": {
+                        "vaule": [
+                            {
+                                "ipAddress": ""
+                            },
+                            {
+                                "ipAddress": ""
+                            }
+                        ]
+                    },
                     "location": {
                         "value": "ukwest"
                     },
