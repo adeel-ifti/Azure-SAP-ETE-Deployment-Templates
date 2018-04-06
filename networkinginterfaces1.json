@@ -11,6 +11,5 @@
     "variables": {
         "ipAddresses": "[parameters('ipAddresses')]"
     },
-    "resources": [],
-    "outputs": {}
+    "resources": []
 }
