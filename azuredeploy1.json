@@ -9,7 +9,7 @@
     },
     "variables": {
         "uniqueString": "[parameters('name')]",
-        "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueString'))]",
+        "networkinterfaces.templatename": "[concat('networkinterfaces1.', variables('uniqueString'))]",
         "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces1.json')]"
     },
     "resources": [
