@@ -1,0 +1,58 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string",
+            "maxLength": 3
+        }
+    },
+    "variables": {
+        "uniqueString": "[parameters('name')]",
+        "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueString'))]",
+        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.json')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[variables('networkinterfaces.templatename')]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('networkinterfaces.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "uniqueString": {
+                        "value": "[variables('uniqueString')]"
+                    },
+                    "primary": {
+                        "value": true
+                    },
+                    "ipAddresses": [
+                        {
+                            "ipAddress": ""
+                        },
+                        {
+                            "ipAddress": ""
+                        }
+                    ],
+                    "location": {
+                        "value": "ukwest"
+                    },
+                    "subscription": {
+                        "value": "Dev Test"
+                    },
+                    "role": {
+                        "value": "CRM"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
