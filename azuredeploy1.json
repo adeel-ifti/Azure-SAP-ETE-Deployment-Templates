@@ -31,19 +31,11 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "NoddyParam": "[variables('ipAddressesVariable')]"
+                    "ipAddresses": "SIMON"
                 },
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        "NoddyParam": {
-                            "type": "object"
-                        }
-                    },
-                    "variables": {},
-                    "resources": [],
-                    "outputs": {}
+                "templateLink": {
+                    "uri": "[variables('networkinterfaces.templateuri')]",
+                    "contentVersion": "1.0.0.0"
                 }
             }
         }
