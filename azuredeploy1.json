@@ -5,6 +5,9 @@
         "name": {
             "type": "string",
             "maxLength": 3
+        },
+        "ipAddresses": {
+            "type": "array"
         }
     },
     "variables": {
@@ -23,10 +26,7 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "ipAddresses": [
-                        "10.0.0.1",
-                        "192.168.0.1"
-                    ]
+                    "ipAddresses": "[parameters('ipAddresses')]"
                 },
                 "template": {
                     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
