@@ -18,7 +18,7 @@
         "uniqueString": "[parameters('name')]",
         "networkinterfaces.templatename": "[concat('networkinterfaces1.', variables('uniqueString'))]",
         "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces1.json')]",
-        "ipAddresses": "[variables('ipAddresses')]"
+        "ipAddresses": "[parameters('ipAddresses')]"
     },
     "resources": [
         {
