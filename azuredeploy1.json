@@ -41,5 +41,11 @@
                 }
             }
         }
-    ]
+    ],
+    "outputs": {
+        "networkInterfaces": {
+            "value": "[variables('ipAddresses')]",
+            "type": "array"
+        }
+    }
 }
