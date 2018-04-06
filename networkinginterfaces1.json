@@ -3,14 +3,14 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "ipAddresses": {
-            "type": "array"
+            "type": "object"
         }
     },
     "variables": {},
     "resources": [],
     "outputs": {
         "networkInterfaces": {
-            "type": "array",
+            "type": "object",
             "value":  "[parameters('ipAddresses')]"
         }
     }
