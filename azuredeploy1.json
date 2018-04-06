@@ -17,35 +17,7 @@
     "variables": {
         "uniqueString": "[parameters('name')]",
         "networkinterfaces.templatename": "[concat('networkinterfaces1.', variables('uniqueString'))]",
-        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces1.json')]",
-        "ipAddresses": "[parameters('ipAddresses')]"
+        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces1.json')]"
     },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "[variables('networkinterfaces.templatename')]",
-            "properties": {
-                "mode": "Incremental",
-                "debugSetting": {
-                    "detailLevel": "requestContent, responseContent"
-                },
-                "parameters": {
-                    "ipAddresses": "[variables('ipAddresses')]"
-                },
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        "ipAddresses": {
-                            "type": "object"
-                        }
-                    },
-                    "variables": {},
-                    "resources": [],
-                    "outputs": {}
-                }
-            }
-        }
-    ]
+    "resources": []
 }
