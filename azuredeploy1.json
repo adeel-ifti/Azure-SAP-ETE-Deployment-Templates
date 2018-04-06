@@ -18,7 +18,7 @@
         "uniqueString": "[parameters('name')]",
         "networkinterfaces.templatename": "[concat('networkinterfaces1.', variables('uniqueString'))]",
         "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces1.json')]",
-        "ipAddressesVariable": "[parameters('ipAddressesParam')]"
+        "ipAddressesVariable": { "ipAddressObj": "[parameters('ipAddressesParam')]" }
     },
     "resources": [
         {
@@ -38,8 +38,7 @@
                     "contentVersion": "1.0.0.0",
                     "parameters": {
                         "NoddyParam": {
-                            "type": "array",
-                            "defaultValue": []
+                            "type": "object"
                         }
                     },
                     "variables": {},
