@@ -3,10 +3,14 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "ipAddresses": {
-            "type": "array"
+            "type": "array",
+            "minLength": 2,
+            "maxLength": 2
         }
     },
-    "variables": {},
+    "variables": {
+        "ipAddresses": "[parameters('ipAddresses')]"
+    },
     "resources": [],
     "outputs": {}
 }
