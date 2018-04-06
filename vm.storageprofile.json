@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "uniqueString": {
+        "uniqueDeploymentString": {
             "type": "string"
         },
         "vmName": {
@@ -55,11 +55,11 @@
         }
     },
     "variables": {
-        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', parameters('uniqueString'))]",
+        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', parameters('uniqueDeploymentString'))]",
         "vm.storageprofile.osdisk.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
-        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', parameters('uniqueString'))]",
+        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', parameters('uniqueDeploymentString'))]",
         "vm.storageprofile.datadisks.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
-        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', parameters('uniqueString'))]",
+        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', parameters('uniqueDeploymentString'))]",
         "vm.storageprofile.imagereference.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]"
     },
     "resources": [
