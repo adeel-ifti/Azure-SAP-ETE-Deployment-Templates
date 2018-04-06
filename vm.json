@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "uniqueString": {
+        "uniqueDeploymentString": {
             "type": "string"
         },
         "vmName": {
@@ -56,11 +56,11 @@
 
     },
     "variables": {
-        "vm.storageprofile.templatename": "[concat('vm.storageprofile.', parameters('uniqueString'))]",
+        "vm.storageprofile.templatename": "[concat('vm.storageprofile.', parameters('uniqueDeploymentString'))]",
         "vm.storageprofile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.json')]",
-        "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', parameters('uniqueString'))]",
+        "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', parameters('uniqueDeploymentString'))]",
         "vm.bootdiagnostics.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.bootdiagnostics.json')]",
-        "vm.hardwareProfile.templatename": "[concat('vm.hardwareProfile.', parameters('uniqueString'))]",
+        "vm.hardwareProfile.templatename": "[concat('vm.hardwareProfile.', parameters('uniqueDeploymentString'))]",
         "vm.hardwareProfile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.hardwareprofile.json')]"
     },
     "resources": [
@@ -78,8 +78,8 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "uniqueString": {
-                        "value": "[parameters('uniqueString')]"
+                    "uniqueDeploymentString": {
+                        "value": "[parameters('uniqueDeploymentString')]"
                     },
                     "vmName": {
                         "value": "[parameters('vmName')]"
