@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "uniqueString": {
+        "uniqueDeploymentString": {
             "type": "string"
         },
         "primary": {
@@ -40,11 +40,11 @@
         }
     },
     "variables": {
-        "networkinterfaces.enableacceleratednetworking.templatename": "[concat('networkinterfaces.enableacceleratednetworking.', parameters('uniqueString'))]",
+        "networkinterfaces.enableacceleratednetworking.templatename": "[concat('networkinterfaces.enableacceleratednetworking.', parameters('uniqueDeploymentString'))]",
         "networkinterfaces.enableacceleratednetworking.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.enableacceleratednetworking.json')]",
-        "networkinterfaces.dnssettings.templatename": "[concat('networkinterfaces.dnssettings.', parameters('uniqueString'))]",
+        "networkinterfaces.dnssettings.templatename": "[concat('networkinterfaces.dnssettings.', parameters('uniqueDeploymentString'))]",
         "networkinterfaces.dnssettings.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.dnssettings.json')]",
-        "networkinterfaces.ipconfigurations.templatename": "[concat('networkinterfaces.ipconfigurations.', parameters('uniqueString'))]",
+        "networkinterfaces.ipconfigurations.templatename": "[concat('networkinterfaces.ipconfigurations.', parameters('uniqueDeploymentString'))]",
         "networkinterfaces.ipconfigurations.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.ipconfigurations.json')]"
     },
     "resources": [
