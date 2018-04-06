@@ -4,7 +4,74 @@
     "parameters": {
         "name": {
             "type": "string",
-            "maxLength": 3
+            "maxLength": 3,
+            "minLength": 3,
+            "metadata": {
+                "description": "Unique deployment number, e.g. 215"
+            }
+        },
+        "subscription": {
+            "type": "string",
+            "allowedValues": [
+                "Dev Test"
+            ],
+            "defaultValue": "Dev Test",
+            "metadata": {
+                "description": "Subscription in which to deploy this Virtual Machine"
+            }
+        },
+        "vmOs": {
+            "type": "string",
+            "allowedValues": [
+                "RHEL 7.3 BYOS 2018-03-21",
+                "RHEL 7.2",
+                "RHEL 7.3",
+                "SLES SAP 12-SP1",
+                "SLES SAP BYOS 12-SP1",
+                "SLES SAP 12-SP2",
+                "SLES SAP BYOS 12-SP2",
+                "SLES SAP 12-SP3",
+                "SLES SAP BYOS 12-SP3",
+                "Windows Server 2012 Datacenter",
+                "Windows Server 2012 R2 Datacenter",
+                "Windows Server 2016 Datacenter",
+                "Oracle Linux 7.2"
+            ],
+            "defaultValue": "RHEL 7.3 BYOS 2018-03-21",
+            "metadata": {
+                "description": "The Virtual Machine operating system you want to deploy"
+            }
+        },
+        "vmRole": {
+            "type": "string",
+            "allowedValues": [
+                "ISU",
+                "CRM",
+                "PIC",
+                "BWA",
+                "MOB",
+                "EWM",
+                "JVA",
+                "CEV",
+                "PIN",
+                "NGW"
+            ],
+            "defaultValue": "ISU",
+            "metadata": {
+                "description": "The Virtual Machine role you want to deploy"
+            }
+        },
+        "vmIpAddresses": {
+            "type": "array",
+            "minLength": 2,
+            "maxLength": 2,
+            "defaultValue": [
+                "",
+                ""
+            ],
+            "metadata": {
+                "description": "The Virtual Machine static IP addresses. If an address is blank, DHCP will be used"
+            }
         }
     },
     "variables": {
@@ -36,16 +103,16 @@
                         "value": "vmname"
                     },
                     "location": {
-                        "value": "ukwest"
+                        "value": "[resourceGroup().location]"
                     },
                     "osImage": {
-                        "value": "RHEL 7.3 BYOS 2018-03-21"
+                        "value": "[parameters('vmOs')]"
                     },
                     "subscription": {
-                        "value": "Dev Test"
+                        "value": "[parameters('subscription')]"
                     },
                     "role": {
-                        "value": "CRM"
+                        "value": "[parameters('vmRole')]"
                     }
                 }
             }
@@ -71,19 +138,16 @@
                         "value": true
                     },
                     "ipAddresses": {
-                        "value": [
-                            "",
-                            "10.0.0.1"
-                        ]
+                        "value": "[parameters('vmIpAddresses')]"
                     },
                     "location": {
-                        "value": "ukwest"
+                        "value": "[resourceGroup().location]"
                     },
                     "subscription": {
-                        "value": "Dev Test"
+                        "value": "[parameters('subscription')]"
                     },
                     "role": {
-                        "value": "CRM"
+                        "value": "[parameters('vmRole')]"
                     }
                 }
             }
