@@ -10,7 +10,7 @@
     "variables": {
         "uniqueString": "[parameters('name')]",
         "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueString'))]",
-        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.json')]"
+        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces1.json')]"
     },
     "resources": [
         {
@@ -27,12 +27,6 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "uniqueString": {
-                        "value": "[variables('uniqueString')]"
-                    },
-                    "primary": {
-                        "value": true
-                    },
                     "ipAddresses": [
                         {
                             "ipAddress": ""
@@ -40,16 +34,7 @@
                         {
                             "ipAddress": ""
                         }
-                    ],
-                    "location": {
-                        "value": "ukwest"
-                    },
-                    "subscription": {
-                        "value": "Dev Test"
-                    },
-                    "role": {
-                        "value": "CRM"
-                    }
+                    ]
                 }
             }
         }
