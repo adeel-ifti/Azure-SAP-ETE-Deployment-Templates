@@ -1,0 +1,31 @@
+ {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "params": {
+            "type": "object"
+        },
+        "vmName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "uniqueId": "[parameters('params').uniqueId]",
+        "prefix": "[parameters('params').prefix]",
+        "location": "[parameters('params').location]",
+        "subscription": "[parameters('params').subscription]",
+        "image": "[parameters('params').image]",
+        "role": "[parameters('params').role]"
+    },
+    "resources": [],
+    "outputs": {
+        "osProfile": {
+            "type": "object",
+            "value": {
+                "computerName": "[parameters('vmName')]",
+                "adminUsername": "abc",
+                "adminPassword": "zyx"
+            }
+        }
+    }
+}
