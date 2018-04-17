@@ -56,9 +56,6 @@
         "subscriptionPrefix": {
             "SAP Dev Test": {
                 "subscriptionTypePrefix": "d"
-            },
-            "Simon Hutson Internal Subscription": {
-                "subscriptionTypePrefix": "x"
             }
         },
         "locationPrefix": {
