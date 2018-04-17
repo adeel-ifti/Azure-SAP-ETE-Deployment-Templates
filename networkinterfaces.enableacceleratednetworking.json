@@ -14,7 +14,7 @@
         "image": "[parameters('params').image]",
         "role": "[parameters('params').role]",
         "acceleratedNetworking": {
-            "Dev Test": {
+            "SAP Dev Test": {
                 "ISU": false,
                 "CRM": false,
                 "PIC": false,
