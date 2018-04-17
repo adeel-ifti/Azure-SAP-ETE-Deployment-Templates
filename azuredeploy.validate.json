@@ -1,0 +1,80 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "uniqueId": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "allowedValues": [
+                "ukwest"
+            ]
+        },
+        "subscription": {
+            "type": "string",
+            "allowedValues": [
+                "SAP Dev Test"
+            ]
+        },
+        "image": {
+            "type": "string",
+            "allowedValues": [
+                "RHEL 7.3 BYOS 2018-03-21",
+                "RHEL 7.2",
+                "RHEL 7.3",
+                "SLES SAP 12-SP1",
+                "SLES SAP BYOS 12-SP1",
+                "SLES SAP 12-SP2",
+                "SLES SAP BYOS 12-SP2",
+                "SLES SAP 12-SP3",
+                "SLES SAP BYOS 12-SP3",
+                "Windows Server 2012 Datacenter",
+                "Windows Server 2012 R2 Datacenter",
+                "Windows Server 2016 Datacenter",
+                "Oracle Linux 7.2"
+            ]
+        },
+        "role": {
+            "type": "string",
+            "allowedValues": [
+                "ISU",
+                "CRM",
+                "PIC",
+                "BWA",
+                "MOB",
+                "EWM",
+                "JVA",
+                "CEV",
+                "PIN",
+                "NGW"
+            ]
+        }
+    },
+    "variables": {
+        "subscriptionPrefix": {
+            "SAP Dev Test": {
+                "subscriptionTypePrefix": "d"
+            }
+        },
+        "locationPrefix": {
+            "ukwest": {
+                "locationPrefix": "wu"
+            }
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "params": {
+            "type": "object",
+            "value": {
+                "uniqueId": "[toLower(parameters('uniqueId'))]",
+                "prefix": "[concat('az', variables('locationPrefix')[parameters('location')], '-', variables('subscriptionPrefix')[parameters('subscription')], '-')]",
+                "location": "[parameters('location')]",
+                "subscription": "[parameters('subscription')]",
+                "image": "[parameters('image')]",
+                "role": "[parameters('role')]"
+            }
+        }
+    }
+}
