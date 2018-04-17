@@ -14,7 +14,7 @@
         "image": "[parameters('params').image]",
         "role": "[parameters('params').role]",
         "vmSize": {
-            "Dev Test": {
+            "SAP Dev Test": {
                 "ISU": "Standard_E4s_v3",
                 "CRM": "Standard_E4s_v3",
                 "PIC": "Standard_D4s_v3",
