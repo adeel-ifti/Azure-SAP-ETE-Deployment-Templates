@@ -2,38 +2,20 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "params": {
+            "type": "object"
+        },
         "ipAddresses": {
             "type": "array"
-        },
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "ukwest"
-            ]
-        },
-        "role": {
-            "type": "string",
-            "allowedValues": [
-                "ISU",
-                "CRM",
-                "PIC",
-                "BWA",
-                "MOB",
-                "EWM",
-                "JVA",
-                "CEV",
-                "PIN",
-                "NGW"
-            ]
         }
     },
     "variables": {
+        "uniqueId": "[parameters('params').uniqueId]",
+        "prefix": "[parameters('params').prefix]",
+        "location": "[parameters('params').location]",
+        "subscription": "[parameters('params').subscription]",
+        "image": "[parameters('params').image]",
+        "role": "[parameters('params').role]",
         "subnets": {
             "Dev Test": {
                 "ukwest": {
@@ -83,7 +65,7 @@
                             "privateIpAddressVersion": "IPv4",
                             "primary": "[if(equals(copyIndex('ipConfigurations'),0),'true','false')]",
                             "subnet": {
-                                "id": "[variables('subnets')[parameters('subscription')][parameters('location')][parameters('role')].id]"
+                                "id": "[variables('subnets')[variables('subscription')][variables('location')][variables('role')].id]"
                             }
                         }
                     }
