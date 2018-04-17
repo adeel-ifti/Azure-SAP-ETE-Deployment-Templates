@@ -2,68 +2,51 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "uniqueDeploymentString": {
-            "type": "string"
-        },
-        "vmName": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "ukwest"
-            ]
-        },
-        "osImage": {
-            "type": "string",
-            "allowedValues": [
-                "RHEL 7.3 BYOS 2018-03-21",
-                "RHEL 7.2",
-                "RHEL 7.3",
-                "SLES SAP 12-SP1",
-                "SLES SAP BYOS 12-SP1",
-                "SLES SAP 12-SP2",
-                "SLES SAP BYOS 12-SP2",
-                "SLES SAP 12-SP3",
-                "SLES SAP BYOS 12-SP3",
-                "Windows Server 2012 Datacenter",
-                "Windows Server 2012 R2 Datacenter",
-                "Windows Server 2016 Datacenter",
-                "Oracle Linux 7.2"
-            ]
-        },
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "role": {
-            "type": "string",
-            "allowedValues": [
-                "ISU",
-                "CRM",
-                "PIC",
-                "BWA",
-                "MOB",
-                "EWM",
-                "JVA",
-                "CEV",
-                "PIN",
-                "NGW"
-            ]
+        "params": {
+            "type": "object"
         }
-
     },
     "variables": {
-        "vm.storageprofile.templatename": "[concat('vm.storageprofile.', parameters('uniqueDeploymentString'))]",
+        "uniqueId": "[parameters('params').uniqueId]",
+        "prefix": "[parameters('params').prefix]",
+        "location": "[parameters('params').location]",
+        "subscription": "[parameters('params').subscription]",
+        "image": "[parameters('params').image]",
+        "role": "[parameters('params').role]",
+        "vm.osprofile.templatename": "[concat('vm.osprofile.', variables('uniqueId'))]",
+        "vm.osprofile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.osprofile.json')]",
+        "vm.storageprofile.templatename": "[concat('vm.storageprofile.', variables('uniqueId'))]",
         "vm.storageprofile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.json')]",
-        "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', parameters('uniqueDeploymentString'))]",
+        "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', variables('uniqueId'))]",
         "vm.bootdiagnostics.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.bootdiagnostics.json')]",
-        "vm.hardwareProfile.templatename": "[concat('vm.hardwareProfile.', parameters('uniqueDeploymentString'))]",
-        "vm.hardwareProfile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.hardwareprofile.json')]"
+        "vm.hardwareProfile.templatename": "[concat('vm.hardwareProfile.', variables('uniqueId'))]",
+        "vm.hardwareProfile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.hardwareprofile.json')]",
+        "vmName": "[concat(variables('prefix'), 'sap', variables('uniqueId'))]"
     },
     "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[variables('vm.osprofile.templatename')]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('vm.osprofile.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "params": {
+                        "value": "[parameters('params')]"
+                    },
+                    "vmName": {
+                        "value": "[variables('vmName')]"
+                    }
+                }
+            }
+        },
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
@@ -78,23 +61,11 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "uniqueDeploymentString": {
-                        "value": "[parameters('uniqueDeploymentString')]"
+                    "params": {
+                        "value": "[parameters('params')]"
                     },
                     "vmName": {
-                        "value": "[parameters('vmName')]"
-                    },
-                    "location": {
-                        "value": "[parameters('location')]"
-                    },
-                    "osImage": {
-                        "value": "[parameters('osImage')]"
-                    },
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "role": {
-                        "value": "[parameters('role')]"
+                        "value": "[variables('vmName')]"
                     }
                 }
             }
@@ -113,11 +84,8 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "location": {
-                        "value": "[parameters('location')]"
+                    "params": {
+                        "value": "[parameters('params')]"
                     }
                 }
             }
@@ -136,11 +104,8 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "role": {
-                        "value": "[parameters('role')]"
+                    "params": {
+                        "value": "[parameters('params')]"
                     }
                 }
             }
