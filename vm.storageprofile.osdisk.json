@@ -2,29 +2,20 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "params": {
+            "type": "object"
+        },
         "vmName": {
             "type": "string"
-        },
-        "osImage": {
-            "type": "string",
-            "allowedValues": [
-                "RHEL 7.3 BYOS 2018-03-21",
-                "RHEL 7.2",
-                "RHEL 7.3",
-                "SLES SAP 12-SP1",
-                "SLES SAP BYOS 12-SP1",
-                "SLES SAP 12-SP2",
-                "SLES SAP BYOS 12-SP2",
-                "SLES SAP 12-SP3",
-                "SLES SAP BYOS 12-SP3",
-                "Windows Server 2012 Datacenter",
-                "Windows Server 2012 R2 Datacenter",
-                "Windows Server 2016 Datacenter",
-                "Oracle Linux 7.2"
-            ]
         }
     },
     "variables": {
+        "uniqueId": "[parameters('params').uniqueId]",
+        "prefix": "[parameters('params').prefix]",
+        "location": "[parameters('params').location]",
+        "subscription": "[parameters('params').subscription]",
+        "image": "[parameters('params').image]",
+        "role": "[parameters('params').role]",
         "RHEL 7.2": {
             "osDisk": {
                 "osType": "Linux",
@@ -172,7 +163,7 @@
     "resources": [],
     "outputs": {
         "osDisk": {
-            "value": "[variables(parameters('osImage')).osDisk]",
+            "value": "[variables(variables('image')).osDisk]",
             "type": "object"
         }
     }
