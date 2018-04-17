@@ -2,49 +2,28 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "uniqueDeploymentString": {
-            "type": "string"
+        "params": {
+            "type": "object"
         },
         "primary": {
             "type": "bool"
         },
         "ipAddresses": {
             "type": "array"
-        },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "ukwest"
-            ]
-        },
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "role": {
-            "type": "string",
-            "allowedValues": [
-                "ISU",
-                "CRM",
-                "PIC",
-                "BWA",
-                "MOB",
-                "EWM",
-                "JVA",
-                "CEV",
-                "PIN",
-                "NGW"
-            ]
         }
     },
     "variables": {
-        "networkinterfaces.enableacceleratednetworking.templatename": "[concat('networkinterfaces.enableacceleratednetworking.', parameters('uniqueDeploymentString'))]",
+        "uniqueId": "[parameters('params').uniqueId]",
+        "prefix": "[parameters('params').prefix]",
+        "location": "[parameters('params').location]",
+        "subscription": "[parameters('params').subscription]",
+        "image": "[parameters('params').image]",
+        "role": "[parameters('params').role]",
+        "networkinterfaces.enableacceleratednetworking.templatename": "[concat('networkinterfaces.enableacceleratednetworking.', variables('uniqueId'))]",
         "networkinterfaces.enableacceleratednetworking.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.enableacceleratednetworking.json')]",
-        "networkinterfaces.dnssettings.templatename": "[concat('networkinterfaces.dnssettings.', parameters('uniqueDeploymentString'))]",
+        "networkinterfaces.dnssettings.templatename": "[concat('networkinterfaces.dnssettings.', variables('uniqueId'))]",
         "networkinterfaces.dnssettings.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.dnssettings.json')]",
-        "networkinterfaces.ipconfigurations.templatename": "[concat('networkinterfaces.ipconfigurations.', parameters('uniqueDeploymentString'))]",
+        "networkinterfaces.ipconfigurations.templatename": "[concat('networkinterfaces.ipconfigurations.', variables('uniqueId'))]",
         "networkinterfaces.ipconfigurations.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.ipconfigurations.json')]"
     },
     "resources": [
@@ -62,11 +41,8 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "role": {
-                        "value": "[parameters('role')]"
+                    "params": {
+                        "value": "[parameters('params')]"
                     }
                 }
             }
@@ -84,7 +60,11 @@
                 "debugSetting": {
                     "detailLevel": "requestContent, responseContent"
                 },
-                "parameters": {}
+                "parameters": {
+                    "params": {
+                        "value": "[parameters('params')]"
+                    }
+                }
             }
         },
         {
@@ -101,17 +81,11 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
+                    "params": {
+                        "value": "[parameters('params')]"
+                    },
                     "ipAddresses": {
                         "value": "[parameters('ipAddresses')]"
-                    },
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "location": {
-                        "value": "[parameters('location')]"
-                    },
-                    "role": {
-                        "value": "[parameters('role')]"
                     }
                 }
             }
