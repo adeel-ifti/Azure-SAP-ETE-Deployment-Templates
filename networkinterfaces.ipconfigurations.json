@@ -17,7 +17,7 @@
         "image": "[parameters('params').image]",
         "role": "[parameters('params').role]",
         "subnets": {
-            "Dev Test": {
+            "SAP Dev Test": {
                 "ukwest": {
                     "ISU": {
                         "id": "[resourceId('azwu-rg-sap-devtest-defaultnetworking-001', 'Microsoft.Network/virtualNetworks/subnets', 'azwu-vnet-devtest-sap-001', 'azwu-subn-devtest-sap-ukh-isu-001')]"
