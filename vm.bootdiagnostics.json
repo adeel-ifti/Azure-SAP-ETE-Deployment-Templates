@@ -14,7 +14,7 @@
         "image": "[parameters('params').image]",
         "role": "[parameters('params').role]",
         "storageUri": {
-            "Dev Test": {
+            "SAP Dev Test": {
                 "ukwest": {
                     "uri": "https://azwudsapvmdiags.blob.core.windows.net/"
                 }
