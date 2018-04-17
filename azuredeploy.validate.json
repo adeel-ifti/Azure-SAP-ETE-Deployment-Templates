@@ -14,7 +14,8 @@
         "subscription": {
             "type": "string",
             "allowedValues": [
-                "SAP Dev Test"
+                "SAP Dev Test",
+                "Simon Hutson Internal Subscription"
             ]
         },
         "image": {
@@ -55,6 +56,9 @@
         "subscriptionPrefix": {
             "SAP Dev Test": {
                 "subscriptionTypePrefix": "d"
+            },
+            "Simon Hutson Internal Subscription": {
+                "subscriptionTypePrefix": "x"
             }
         },
         "locationPrefix": {
