@@ -2,7 +2,7 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "name": {
+        "uniqueId": {
             "type": "string",
             "maxLength": 3,
             "minLength": 3,
@@ -10,17 +10,7 @@
                 "description": "Unique deployment number, e.g. 215"
             }
         },
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ],
-            "defaultValue": "Dev Test",
-            "metadata": {
-                "description": "Subscription in which to deploy this Virtual Machine"
-            }
-        },
-        "vmOs": {
+        "image": {
             "type": "string",
             "allowedValues": [
                 "RHEL 7.3 BYOS 2018-03-21",
@@ -42,7 +32,7 @@
                 "description": "The Virtual Machine operating system you want to deploy"
             }
         },
-        "vmRole": {
+        "role": {
             "type": "string",
             "allowedValues": [
                 "ISU",
@@ -75,17 +65,54 @@
         }
     },
     "variables": {
-        "uniqueDeploymentString": "[parameters('name')]",
-        "vm.templatename": "[concat('vm.', variables('uniqueDeploymentString'))]",
+        "uniqueId": "[parameters('uniqueId')]",
+        "azuredeploy.validate.templatename": "[concat('azuredeploy.validate.', variables('uniqueId'))]",
+        "azuredeploy.validate.templateuri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy.validate.json')]",
+        "vm.templatename": "[concat('vm.', variables('uniqueId'))]",
         "vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.json')]",
-        "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueDeploymentString'))]",
+        "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueId'))]",
         "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.json')]"
     },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
+            "name": "[variables('azuredeploy.validate.templatename')]",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('azuredeploy.validate.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "uniqueId": {
+                        "value": "[parameters('uniqueId')]"
+                    },
+                    "location": {
+                        "value": "[resourceGroup().location]"
+                    },
+                    "subscription": {
+                        "value": "[subscription().displayName]"
+                    },
+                    "image": {
+                        "value": "[parameters('image')]"
+                    },
+                    "role": {
+                        "value": "[parameters('role')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
             "name": "[variables('vm.templatename')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('azuredeploy.validate.templatename'))]"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -96,23 +123,11 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "uniqueDeploymentString": {
-                        "value": "[variables('uniqueDeploymentString')]"
+                    "params": {
+                        "value": "[reference(variables('azuredeploy.validate.templatename')).outputs.params.value]"
                     },
                     "vmName": {
                         "value": "vmname"
-                    },
-                    "location": {
-                        "value": "[resourceGroup().location]"
-                    },
-                    "osImage": {
-                        "value": "[parameters('vmOs')]"
-                    },
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "role": {
-                        "value": "[parameters('vmRole')]"
                     }
                 }
             }
@@ -121,6 +136,9 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
             "name": "[variables('networkinterfaces.templatename')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('azuredeploy.validate.templatename'))]"
+            ],
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -131,23 +149,14 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "uniqueDeploymentString": {
-                        "value": "[variables('uniqueDeploymentString')]"
+                    "params": {
+                        "value": "[reference(variables('azuredeploy.validate.templatename')).outputs.params.value]"
                     },
                     "primary": {
                         "value": true
                     },
                     "ipAddresses": {
                         "value": "[parameters('vmIpAddresses')]"
-                    },
-                    "location": {
-                        "value": "[resourceGroup().location]"
-                    },
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "role": {
-                        "value": "[parameters('vmRole')]"
                     }
                 }
             }
