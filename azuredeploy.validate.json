@@ -73,7 +73,7 @@
             "type": "object",
             "value": {
                 "uniqueId": "[toLower(parameters('uniqueId'))]",
-                "prefix": "[concat('az', variables('locationPrefix')[parameters('location')], '-', variables('subscriptionPrefix')[parameters('subscription')], '-')]",
+                "prefix": "[concat('az', '-', '-')]",
                 "location": "[parameters('location')]",
                 "subscription": "[parameters('subscription')]",
                 "image": "[parameters('image')]",
