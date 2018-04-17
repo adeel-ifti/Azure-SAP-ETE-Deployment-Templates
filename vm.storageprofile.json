@@ -2,64 +2,25 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "uniqueDeploymentString": {
-            "type": "string"
+        "params": {
+            "type": "object"
         },
         "vmName": {
             "type": "string"
-        },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "ukwest"
-            ]
-        },
-        "osImage": {
-            "type": "string",
-            "allowedValues": [
-                "RHEL 7.3 BYOS 2018-03-21",
-                "RHEL 7.2",
-                "RHEL 7.3",
-                "SLES SAP 12-SP1",
-                "SLES SAP BYOS 12-SP1",
-                "SLES SAP 12-SP2",
-                "SLES SAP BYOS 12-SP2",
-                "SLES SAP 12-SP3",
-                "SLES SAP BYOS 12-SP3",
-                "Windows Server 2012 Datacenter",
-                "Windows Server 2012 R2 Datacenter",
-                "Windows Server 2016 Datacenter",
-                "Oracle Linux 7.2"
-            ]
-        },
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "role": {
-            "type": "string",
-            "allowedValues": [
-                "ISU",
-                "CRM",
-                "PIC",
-                "BWA",
-                "MOB",
-                "EWM",
-                "JVA",
-                "CEV",
-                "PIN",
-                "NGW"
-            ]
         }
     },
     "variables": {
-        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', parameters('uniqueDeploymentString'))]",
+        "uniqueId": "[parameters('params').uniqueId]",
+        "prefix": "[parameters('params').prefix]",
+        "location": "[parameters('params').location]",
+        "subscription": "[parameters('params').subscription]",
+        "image": "[parameters('params').image]",
+        "role": "[parameters('params').role]",
+        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', variables('uniqueId'))]",
         "vm.storageprofile.osdisk.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
-        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', parameters('uniqueDeploymentString'))]",
+        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', variables('uniqueId'))]",
         "vm.storageprofile.datadisks.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
-        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', parameters('uniqueDeploymentString'))]",
+        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', variables('uniqueId'))]",
         "vm.storageprofile.imagereference.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]"
     },
     "resources": [
@@ -77,11 +38,11 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
+                    "params": {
+                        "value": "[parameters('params')]"
+                    },
                     "vmName": {
                         "value": "[parameters('vmName')]"
-                    },
-                    "osImage": {
-                        "value": "[parameters('osImage')]"
                     }
                 }
             }
@@ -100,14 +61,11 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
+                    "params": {
+                        "value": "[parameters('params')]"
+                    },
                     "vmName": {
                         "value": "[parameters('vmName')]"
-                    },
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "role": {
-                        "value": "[parameters('role')]"
                     }
                 }
             }
@@ -126,14 +84,8 @@
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "subscription": {
-                        "value": "[parameters('subscription')]"
-                    },
-                    "location": {
-                        "value": "[parameters('location')]"
-                    },
-                    "osImage": {
-                        "value": "[parameters('osImage')]"
+                    "params": {
+                        "value": "[parameters('params')]"
                     }
                 }
             }
