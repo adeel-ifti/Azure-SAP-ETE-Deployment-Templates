@@ -16,175 +16,173 @@
         "subscription": "[parameters('params').subscription]",
         "image": "[parameters('params').image]",
         "role": "[parameters('params').role]",
-        "diskSizes": {
-            "SAP Dev Test": {
-                "ISU": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 1023
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "CRM": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 511
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "PIC": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 511
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "BWA": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 511
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "MOB": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "EWM": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 127
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "JVA": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "CEV": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 511
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "PIN": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                },
-                "NGW": {
-                    "disks": [
-                        {
-                            "size": 63
-                        },
-                        {
-                            "size": 127
-                        },
-                        {
-                            "size": 31
-                        },
-                        {
-                            "size": 63
-                        }
-                    ]
-                }
+        "SAP Dev Test": {
+            "ISU": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 1023
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "CRM": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 511
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "PIC": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 511
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "BWA": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 511
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "MOB": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "EWM": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 127
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "JVA": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "CEV": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 511
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "PIN": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
+            },
+            "NGW": {
+                "disks": [
+                    {
+                        "size": 63
+                    },
+                    {
+                        "size": 127
+                    },
+                    {
+                        "size": 31
+                    },
+                    {
+                        "size": 63
+                    }
+                ]
             }
         },
         "dataDisksObj": {
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(variables('diskSizes')[string(variables('subscription'))][string(variables('role'))].disks)]",
+                    "count": "[length(variables('subscription')[variables('role')].disks)]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
