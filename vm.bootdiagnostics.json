@@ -2,20 +2,17 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "ukwest"
-            ]
+        "params": {
+            "type": "object"
         }
     },
     "variables": {
+        "uniqueId": "[parameters('params').uniqueId]",
+        "prefix": "[parameters('params').prefix]",
+        "location": "[parameters('params').location]",
+        "subscription": "[parameters('params').subscription]",
+        "image": "[parameters('params').image]",
+        "role": "[parameters('params').role]",
         "storageUri": {
             "Dev Test": {
                 "ukwest": {
@@ -25,7 +22,7 @@
         },
         "bootDiagnostics": {
             "enabled": true,
-            "storageUri": "[variables('storageUri')[parameters('subscription')][parameters('location')].uri]"
+            "storageUri": "[variables('storageUri')[variables('subscription')][variables('location')].uri]"
         }
     },
     "resources": [],
