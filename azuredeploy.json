@@ -134,10 +134,10 @@
                         "value": "[reference(variables('azuredeploy.validate.templatename')).outputs.params.value]"
                     },
                     "adminUserName": {
-                        "type": "[parameters('adminUserName')]"
+                        "value": "[parameters('adminUserName')]"
                     },
                     "adminPassword": {
-                        "type": "[parameters('adminPassword')]"
+                        "value": "[parameters('adminPassword')]"
                     }
                 }
             }
