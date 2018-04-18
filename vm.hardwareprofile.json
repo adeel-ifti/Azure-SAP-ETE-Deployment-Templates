@@ -2,31 +2,13 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "role": {
-            "type": "string",
-            "allowedValues": [
-                "ISU",
-                "CRM",
-                "PIC",
-                "BWA",
-                "MOB",
-                "EWM",
-                "JVA",
-                "CEV",
-                "PIN",
-                "NGW"
-            ]
+        "params": {
+            "type": "object"
         }
     },
     "variables": {
         "vmSize": {
-            "Dev Test": {
+            "SAP Dev Test": {
                 "ISU": "Standard_E4s_v3",
                 "CRM": "Standard_E4s_v3",
                 "PIC": "Standard_D4s_v3",
@@ -40,7 +22,7 @@
             }
         },
         "hardwareProfile": {
-            "vmSize": "[variables('vmSize')[parameters('subscription')][parameters('role')]]"
+            "vmSize": "[variables('vmSize')[parameters('params').subscription][parameters('params').role]]"
         }
     },
     "resources": [],

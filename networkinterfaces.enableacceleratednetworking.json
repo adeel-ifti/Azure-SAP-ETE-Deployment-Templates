@@ -2,31 +2,13 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "role": {
-            "type": "string",
-            "allowedValues": [
-                "ISU",
-                "CRM",
-                "PIC",
-                "BWA",
-                "MOB",
-                "EWM",
-                "JVA",
-                "CEV",
-                "PIN",
-                "NGW"
-            ]
+        "params": {
+            "type": "object"
         }
     },
     "variables": {
         "acceleratedNetworking": {
-            "Dev Test": {
+            "SAP Dev Test": {
                 "ISU": false,
                 "CRM": false,
                 "PIC": false,
@@ -43,7 +25,7 @@
     "resources": [],
     "outputs": {
         "enableAcceleratedNetworking": {
-            "value": "[variables('acceleratedNetworking')[parameters('subscription')][parameters('role')]]",
+            "value": "[variables('acceleratedNetworking')[parameters('params').subscription][parameters('params').role]]",
             "type": "bool"
         }
     }

@@ -2,34 +2,16 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "params": {
+            "type": "object"
+        },
         "vmName": {
             "type": "string"
-        },
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "role": {
-            "type": "string",
-            "allowedValues": [
-                "ISU",
-                "CRM",
-                "PIC",
-                "BWA",
-                "MOB",
-                "EWM",
-                "JVA",
-                "CEV",
-                "PIN",
-                "NGW"
-            ]
         }
     },
     "variables": {
         "diskSizes": {
-            "Dev Test": {
+            "SAP Dev Test": {
                 "ISU": {
                     "disks": [
                         {
@@ -196,12 +178,12 @@
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(variables('diskSizes')[parameters('subscription')][parameters('role')].disks)]",
+                    "count": "[length(variables('diskSizes')[parameters('params').subscription][parameters('params').role].disks)]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
                         "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                        "size": "[variables('diskSizes')[parameters('subscription')][parameters('role')].disks[copyIndex('dataDisks')].size]"
+                        "size": "[variables('diskSizes')[parameters('params').subscription][parameters('params').role].disks[copyIndex('dataDisks')].size]"
                     }
                 }
             ]

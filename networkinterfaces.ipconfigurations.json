@@ -2,40 +2,16 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "params": {
+            "type": "object"
+        },
         "ipAddresses": {
             "type": "array"
-        },
-        "subscription": {
-            "type": "string",
-            "allowedValues": [
-                "Dev Test"
-            ]
-        },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "ukwest"
-            ]
-        },
-        "role": {
-            "type": "string",
-            "allowedValues": [
-                "ISU",
-                "CRM",
-                "PIC",
-                "BWA",
-                "MOB",
-                "EWM",
-                "JVA",
-                "CEV",
-                "PIN",
-                "NGW"
-            ]
         }
     },
     "variables": {
         "subnets": {
-            "Dev Test": {
+            "SAP Dev Test": {
                 "ukwest": {
                     "ISU": {
                         "id": "[resourceId('azwu-rg-sap-devtest-defaultnetworking-001', 'Microsoft.Network/virtualNetworks/subnets', 'azwu-vnet-devtest-sap-001', 'azwu-subn-devtest-sap-ukh-isu-001')]"
@@ -83,7 +59,7 @@
                             "privateIpAddressVersion": "IPv4",
                             "primary": "[if(equals(copyIndex('ipConfigurations'),0),'true','false')]",
                             "subnet": {
-                                "id": "[variables('subnets')[parameters('subscription')][parameters('location')][parameters('role')].id]"
+                                "id": "[variables('subnets')[parameters('params').subscription][parameters('params').location][parameters('params').role].id]"
                             }
                         }
                     }
