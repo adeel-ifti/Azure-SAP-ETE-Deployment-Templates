@@ -123,6 +123,7 @@
             "value": {
                 "hardwareProfile": "[reference(variables('vm.hardwareprofile.templatename')).outputs.hardwareProfile.value]",
                 "storageProfile": "[reference(variables('vm.storageprofile.templatename')).outputs.storageProfile.value]",
+                "osProfile": "[reference(variables('vm.osprofile.templatename')).outputs.osProfile.value]",
                 "bootDiagnostics": "[reference(variables('vm.bootdiagnostics.templatename')).outputs.bootDiagnostics.value]"
             }
         }
