@@ -10,6 +10,13 @@
                 "description": "Unique deployment number, e.g. 215"
             }
         },
+        "adminUserName": {
+            "type": "string",
+            "defaultValue": "azureuser"
+        },
+        "adminPassword": {
+            "type": "securestring"
+        },
         "image": {
             "type": "string",
             "allowedValues": [
@@ -125,6 +132,12 @@
                 "parameters": {
                     "params": {
                         "value": "[reference(variables('azuredeploy.validate.templatename')).outputs.params.value]"
+                    },
+                    "adminUserName": {
+                        "type": "[parameters('adminUserName')]"
+                    },
+                    "adminPassword": {
+                        "type": "[parameters('adminPassword')]"
                     }
                 }
             }
