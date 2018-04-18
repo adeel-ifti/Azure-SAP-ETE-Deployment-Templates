@@ -57,6 +57,18 @@
         },
         "locationPrefix": {
             "ukwest":  "wu"
+        },
+        "roleNumber": {
+            "PIC": "0",
+            "CEV": "1",
+            "ISU": "2",
+            "CRM": "3",
+            "BWA": "4",
+            "MOB": "5",
+            "EWM": "6",
+            "JVA": "7",
+            "NGW": "8",
+            "PIN": "9"
         }
     },
     "resources": [],
@@ -64,7 +76,7 @@
         "params": {
             "type": "object",
             "value": {
-                "uniqueId": "[toLower(parameters('uniqueId'))]",
+                "uniqueId": "[toLower(concat(parameters('uniqueId'), variables('roleNumber')[parameters('role')]))]",
                 "prefix": "[concat('az', variables('locationPrefix')[parameters('location')], '-', variables('subscriptionPrefix')[parameters('subscription')], '-')]",
                 "location": "[parameters('location')]",
                 "subscription": "[parameters('subscription')]",
