@@ -14,8 +14,7 @@
         "subscription": {
             "type": "string",
             "allowedValues": [
-                "SAP Dev Test",
-                "Simon Hutson Internal Subscription"
+                "SAP Dev Test"
             ]
         },
         "image": {
