@@ -7,12 +7,6 @@
         }
     },
     "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]",
         "storageUri": {
             "SAP Dev Test": {
                 "ukwest": {
@@ -22,7 +16,7 @@
         },
         "bootDiagnostics": {
             "enabled": true,
-            "storageUri": "[variables('storageUri')[variables('subscription')][variables('location')].uri]"
+            "storageUri": "[variables('storageUri')[parameters('params').subscription][parameters('params').location].uri]"
         }
     },
     "resources": [],
