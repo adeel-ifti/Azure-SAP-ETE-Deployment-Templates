@@ -53,14 +53,10 @@
     },
     "variables": {
         "subscriptionPrefix": {
-            "SAP Dev Test": {
-                "subscriptionTypePrefix": "d"
-            }
+            "SAP Dev Test": "d"
         },
         "locationPrefix": {
-            "ukwest": {
-                "locationPrefix": "wu"
-            }
+            "ukwest":  "wu"
         }
     },
     "resources": [],
@@ -69,7 +65,7 @@
             "type": "object",
             "value": {
                 "uniqueId": "[toLower(parameters('uniqueId'))]",
-                "prefix": "[concat('az', variables('locationPrefix')[parameters('location')][string('locationPrefix')], '-', '-')]",
+                "prefix": "[concat('az', variables('locationPrefix')[parameters('location')], '-', variables('subscriptionPrefix')[parameters('subscription')], '-')]",
                 "location": "[parameters('location')]",
                 "subscription": "[parameters('subscription')]",
                 "image": "[parameters('image')]",
