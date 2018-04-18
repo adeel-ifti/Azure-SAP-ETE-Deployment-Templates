@@ -7,12 +7,6 @@
         }
     },
     "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]",
         "vmSize": {
             "SAP Dev Test": {
                 "ISU": "Standard_E4s_v3",
@@ -28,7 +22,7 @@
             }
         },
         "hardwareProfile": {
-            "vmSize": "[variables('vmSize')[variables('subscription')][variables('role')]]"
+            "vmSize": "[variables('vmSize')[parameters('params').subscription][parameters('params').role]]"
         }
     },
     "resources": [],
