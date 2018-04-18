@@ -10,12 +10,6 @@
         }
     },
     "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]",
         "subnets": {
             "SAP Dev Test": {
                 "ukwest": {
@@ -65,7 +59,7 @@
                             "privateIpAddressVersion": "IPv4",
                             "primary": "[if(equals(copyIndex('ipConfigurations'),0),'true','false')]",
                             "subnet": {
-                                "id": "[variables('subnets')[variables('subscription')][variables('location')][variables('role')].id]"
+                                "id": "[variables('subnets')[parameters('params').subscription][parameters('params').location][parameters('params').role].id]"
                             }
                         }
                     }
