@@ -184,12 +184,12 @@
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(variables('diskSizes')[variables('subscription')][variables('role')].disks)]",
+                    "count": "[length(variables('diskSizes')[variables('subscription')][variables('role')][array('disks')])]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
                         "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                        "size": "[variables('diskSizes')[variables('subscription')][variables('role')].disks[copyIndex('dataDisks')].size]"
+                        "size": 63
                     }
                 }
             ]
