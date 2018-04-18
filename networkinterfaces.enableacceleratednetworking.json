@@ -7,12 +7,6 @@
         }
     },
     "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]",
         "acceleratedNetworking": {
             "SAP Dev Test": {
                 "ISU": false,
@@ -31,7 +25,7 @@
     "resources": [],
     "outputs": {
         "enableAcceleratedNetworking": {
-            "value": "[variables('acceleratedNetworking')[variables('subscription')][variables('role')]]",
+            "value": "[variables('acceleratedNetworking')[parameters('params').subscription][parameters('params').role]]",
             "type": "bool"
         }
     }
