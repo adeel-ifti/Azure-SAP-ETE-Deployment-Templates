@@ -13,9 +13,9 @@
         "uniqueId": "[parameters('params').uniqueId]",
         "prefix": "[parameters('params').prefix]",
         "location": "[parameters('params').location]",
-        "subscription": "[[parameters('params')].subscription]]",
+        "subscription": "[parameters('params').subscription]",
         "image": "[parameters('params').image]",
-        "role": "[[parameters('params')].role]",
+        "role": "[parameters('params').role]",
         "diskSizes": {
             "SAP Dev Test": {
                 "ISU": {
@@ -184,12 +184,12 @@
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(variables('diskSizes')[variables('subscription')][variables('role')].disks)]",
+                    "count": "[length(variables('diskSizes')[parameters('params').subscription][parameters('params').role].disks)]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
                         "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                        "size": "[variables('diskSizes')[variables('subscription')][variables('role')].disks[copyIndex('dataDisks')].size]"
+                        "size": "[variables('diskSizes')[parameters('params').subscription][parameters('params').role].disks[copyIndex('dataDisks')].size]"
                     }
                 }
             ]
