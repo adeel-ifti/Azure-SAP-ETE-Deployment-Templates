@@ -7,21 +7,15 @@
         }
     },
     "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]",
-        "vm.osprofile.templatename": "[concat('vm.osprofile.', variables('uniqueId'))]",
+        "vm.osprofile.templatename": "[concat('vm.osprofile.', parameters('params').uniqueId)]",
         "vm.osprofile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.osprofile.json')]",
-        "vm.storageprofile.templatename": "[concat('vm.storageprofile.', variables('uniqueId'))]",
+        "vm.storageprofile.templatename": "[concat('vm.storageprofile.', parameters('params').uniqueId)]",
         "vm.storageprofile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.json')]",
-        "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', variables('uniqueId'))]",
+        "vm.bootdiagnostics.templatename": "[concat('vm.bootdiagnostics.', parameters('params').uniqueId)]",
         "vm.bootdiagnostics.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.bootdiagnostics.json')]",
-        "vm.hardwareProfile.templatename": "[concat('vm.hardwareProfile.', variables('uniqueId'))]",
+        "vm.hardwareProfile.templatename": "[concat('vm.hardwareprofile.', parameters('params').uniqueId)]",
         "vm.hardwareProfile.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.hardwareprofile.json')]",
-        "vmName": "[concat(variables('prefix'), 'sap', variables('uniqueId'))]"
+        "vmName": "[concat(parameters('params').prefix, 'sap', parameters('params').uniqueId)]"
     },
     "resources": [
         {
@@ -115,7 +109,7 @@
         "vm": {
             "type": "object",
             "value": {
-                "hardwareProfile": "[reference(variables('vm.hardwareProfile.templatename')).outputs.hardwareProfile.value]",
+                "hardwareProfile": "[reference(variables('vm.hardwareprofile.templatename')).outputs.hardwareProfile.value]",
                 "storageProfile": "[reference(variables('vm.storageprofile.templatename')).outputs.storageProfile.value]",
                 "bootDiagnostics": "[reference(variables('vm.bootdiagnostics.templatename')).outputs.bootDiagnostics.value]"
             }
