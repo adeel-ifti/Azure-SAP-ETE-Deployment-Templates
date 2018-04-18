@@ -4,6 +4,12 @@
     "parameters": {
         "params": {
             "type": "object"
+        },
+        "adminUserName": {
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "securestring"
         }
     },
     "variables": {
@@ -37,6 +43,12 @@
                     },
                     "vmName": {
                         "value": "[variables('vmName')]"
+                    },
+                    "adminUserName": {
+                        "value": "[parameters('adminUserName')]"
+                    },
+                    "adminPassword": {
+                        "value": "[parameters('adminPassword')]"
                     }
                 }
             }
