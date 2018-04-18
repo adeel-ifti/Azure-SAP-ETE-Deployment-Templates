@@ -120,14 +120,14 @@
         },
         "RHEL 7.3 BYOS 2018-03-21": {
             "imageReference": {
-                "id": "[variables('userImage')[variables('subscription')][variables('location')][string('RHEL 7.3 BYOS 2018-03-21')].id]"
+                "id": "[variables('userImage')[parameters('params').subscription][parameters('params').location][string('RHEL 7.3 BYOS 2018-03-21')].id]"
             }
         }
     },
     "resources": [],
     "outputs": {
         "imageReference": {
-            "value": "[variables(variables('image')).imageReference]",
+            "value": "[variables(parameters('params').image).imageReference]",
             "type": "object"
         }
     }
