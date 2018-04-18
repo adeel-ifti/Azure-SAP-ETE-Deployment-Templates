@@ -10,12 +10,6 @@
         }
     },
     "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]",
         "RHEL 7.2": {
             "osDisk": {
                 "osType": "Linux",
@@ -163,7 +157,7 @@
     "resources": [],
     "outputs": {
         "osDisk": {
-            "value": "[variables(variables('image')).osDisk]",
+            "value": "[variables(parameters('params').image).osDisk]",
             "type": "object"
         }
     }
