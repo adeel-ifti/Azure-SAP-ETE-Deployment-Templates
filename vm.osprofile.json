@@ -7,6 +7,12 @@
         },
         "vmName": {
             "type": "string"
+        },
+        "adminUserName": {
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "securestring"
         }
     },
     "variables": {},
@@ -16,8 +22,8 @@
             "type": "object",
             "value": {
                 "computerName": "[parameters('vmName')]",
-                "adminUsername": "abc",
-                "adminPassword": "zyx"
+                "adminUsername": "[parameters('adminUserName')]",
+                "adminPassword": "[parameters('adminPassword')]"
             }
         }
     }
