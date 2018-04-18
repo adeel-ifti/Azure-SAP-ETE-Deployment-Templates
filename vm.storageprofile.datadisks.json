@@ -184,7 +184,7 @@
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(variables('diskSizes')[variables('subscription')][variables('role')][array('disks')])]",
+                    "count": 4,
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
