@@ -4,10 +4,10 @@
     "parameters": {
         "uniqueId": {
             "type": "string",
-            "maxLength": 3,
-            "minLength": 3,
+            "maxLength": 2,
+            "minLength": 2,
             "metadata": {
-                "description": "Unique deployment number, e.g. 215"
+                "description": "Unique deployment number, e.g. 20"
             }
         },
         "adminUserName": {
