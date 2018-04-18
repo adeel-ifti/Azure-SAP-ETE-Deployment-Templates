@@ -10,17 +10,11 @@
         }
     },
     "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]",
-        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', variables('uniqueId'))]",
+        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', parameters('params').uniqueId)]",
         "vm.storageprofile.osdisk.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
-        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', variables('uniqueId'))]",
+        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', parameters('params').uniqueId)]",
         "vm.storageprofile.datadisks.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
-        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', variables('uniqueId'))]",
+        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', parameters('params').uniqueId)]",
         "vm.storageprofile.imagereference.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]"
     },
     "resources": [
