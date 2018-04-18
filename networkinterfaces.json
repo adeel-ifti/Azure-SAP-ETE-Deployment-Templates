@@ -13,17 +13,11 @@
         }
     },
     "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]",
-        "networkinterfaces.enableacceleratednetworking.templatename": "[concat('networkinterfaces.enableacceleratednetworking.', variables('uniqueId'))]",
+        "networkinterfaces.enableacceleratednetworking.templatename": "[concat('networkinterfaces.enableacceleratednetworking.', parameters('params').uniqueId)]",
         "networkinterfaces.enableacceleratednetworking.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.enableacceleratednetworking.json')]",
-        "networkinterfaces.dnssettings.templatename": "[concat('networkinterfaces.dnssettings.', variables('uniqueId'))]",
+        "networkinterfaces.dnssettings.templatename": "[concat('networkinterfaces.dnssettings.', parameters('params').uniqueId)]",
         "networkinterfaces.dnssettings.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.dnssettings.json')]",
-        "networkinterfaces.ipconfigurations.templatename": "[concat('networkinterfaces.ipconfigurations.', variables('uniqueId'))]",
+        "networkinterfaces.ipconfigurations.templatename": "[concat('networkinterfaces.ipconfigurations.', parameters('params').uniqueId)]",
         "networkinterfaces.ipconfigurations.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.ipconfigurations.json')]"
     },
     "resources": [
