@@ -9,14 +9,7 @@
             "type": "string"
         }
     },
-    "variables": {
-        "uniqueId": "[parameters('params').uniqueId]",
-        "prefix": "[parameters('params').prefix]",
-        "location": "[parameters('params').location]",
-        "subscription": "[parameters('params').subscription]",
-        "image": "[parameters('params').image]",
-        "role": "[parameters('params').role]"
-    },
+    "variables": {},
     "resources": [],
     "outputs": {
         "osProfile": {
