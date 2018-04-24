@@ -4,9 +4,6 @@
     "parameters": {
         "params": {
             "type": "object"
-        },
-        "ipAddresses": {
-            "type": "array"
         }
     },
     "variables": {
@@ -50,12 +47,12 @@
             "copy": [
                 {
                     "name": "ipConfigurations",
-                    "count": "[length(parameters('ipAddresses'))]",
+                    "count": "[length(parameters('params').vmIpAddresses)]",
                     "input": {
                         "name": "[concat('ipconfig',padLeft(copyIndex('ipConfigurations'),2,'0'))]",
                         "properties": {
-                            "privateIPAddress": "[if(equals(parameters('ipAddresses')[copyIndex('ipConfigurations')],''),'',parameters('ipAddresses')[copyIndex('ipConfigurations')])]",
-                            "privateIPAllocationMethod": "[if(equals(parameters('ipAddresses')[copyIndex('ipConfigurations')],''),'Dynamic','Static')]",
+                            "privateIPAddress": "[if(equals(parameters('params').vmIpAddresses[copyIndex('ipConfigurations')],''),'',parameters('params').vmIpAddresses[copyIndex('ipConfigurations')])]",
+                            "privateIPAllocationMethod": "[if(equals(parameters('params').vmIpAddresses[copyIndex('ipConfigurations')],''),'Dynamic','Static')]",
                             "privateIpAddressVersion": "IPv4",
                             "primary": "[if(equals(copyIndex('ipConfigurations'),0),'true','false')]",
                             "subnet": {
@@ -69,7 +66,7 @@
     },
     "resources": [],
     "outputs": {
-        "ipConfigurations": {
+        "output": {
             "value": "[variables('ipConfigurationsObj')[string('ipConfigurations')]]",
             "type": "array"
         }
