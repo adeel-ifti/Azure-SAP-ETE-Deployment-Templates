@@ -4,9 +4,6 @@
     "parameters": {
         "params": {
             "type": "object"
-        },
-        "vmName": {
-            "type": "string"
         }
     },
     "variables": {
@@ -15,160 +12,160 @@
                 "ISU": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 1023
+                            "diskSizeGB": 1023
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "CRM": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 511
+                            "diskSizeGB": 511
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "PIC": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 511
+                            "diskSizeGB": 511
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "BWA": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 511
+                            "diskSizeGB": 511
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "MOB": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "EWM": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 127
+                            "diskSizeGB": 127
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "JVA": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "CEV": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 511
+                            "diskSizeGB": 511
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "PIN": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 },
                 "NGW": {
                     "disks": [
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         },
                         {
-                            "size": 127
+                            "diskSizeGB": 127
                         },
                         {
-                            "size": 31
+                            "diskSizeGB": 31
                         },
                         {
-                            "size": 63
+                            "diskSizeGB": 63
                         }
                     ]
                 }
@@ -178,12 +175,12 @@
             "copy": [
                 {
                     "name": "dataDisks",
-                    "count": "[length(variables('diskSizes')[parameters('params').subscription][parameters('params').role].disks)]",
+                    "count": "[length(variables('diskSizes')[parameters('params').subscription][parameters('params').vmRole].disks)]",
                     "input": {
                         "lun": "[copyIndex('dataDisks')]",
                         "createOption": "Empty",
-                        "name": "[concat(parameters('vmName'),'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
-                        "size": "[variables('diskSizes')[parameters('params').subscription][parameters('params').role].disks[copyIndex('dataDisks')].size]"
+                        "name": "[concat(parameters('params').vmName,'-datadisk-',padLeft(copyIndex('dataDisks'),2,'0'))]",
+                        "diskSizeGB": "[variables('diskSizes')[parameters('params').subscription][parameters('params').vmRole].disks[copyIndex('dataDisks')].diskSizeGB]"
                     }
                 }
             ]
@@ -191,7 +188,7 @@
     },
     "resources": [],
     "outputs": {
-        "dataDisks": {
+        "output": {
             "value": "[variables('dataDisksObj')[string('dataDisks')]]",
             "type": "array"
         }
