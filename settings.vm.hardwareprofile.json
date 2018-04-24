@@ -22,12 +22,12 @@
             }
         },
         "hardwareProfile": {
-            "vmSize": "[variables('vmSize')[parameters('params').subscription][parameters('params').role]]"
+            "vmSize": "[variables('vmSize')[parameters('params').subscription][parameters('params').vmRole]]"
         }
     },
     "resources": [],
     "outputs": {
-        "hardwareProfile": {
+        "output": {
             "value": "[variables('hardwareProfile')]",
             "type": "object"
         }
