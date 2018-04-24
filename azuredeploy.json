@@ -2,44 +2,37 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "uniqueId": {
+        "vmDeploymentNumber": {
             "type": "string",
             "maxLength": 2,
             "minLength": 2,
             "metadata": {
-                "description": "Unique deployment number, e.g. 20"
+                "description": "Unique, 2-digit deployment number, e.g. 20"
             }
         },
-        "adminUserName": {
-            "type": "string",
-            "defaultValue": "azureuser"
-        },
-        "adminPassword": {
-            "type": "securestring"
-        },
-        "image": {
+        "vmImage": {
             "type": "string",
             "allowedValues": [
-                "RHEL 7.3 BYOS 2018-03-21",
-                "RHEL 7.2",
-                "RHEL 7.3",
-                "SLES SAP 12-SP1",
-                "SLES SAP BYOS 12-SP1",
-                "SLES SAP 12-SP2",
-                "SLES SAP BYOS 12-SP2",
-                "SLES SAP 12-SP3",
-                "SLES SAP BYOS 12-SP3",
-                "Windows Server 2012 Datacenter",
-                "Windows Server 2012 R2 Datacenter",
-                "Windows Server 2016 Datacenter",
-                "Oracle Linux 7.2"
+                "Custom Image - RHEL 7.3 BYOS 2018-03-21",
+                "Gallery Image - RHEL 7.2",
+                "Gallery Image - RHEL 7.3",
+                "Gallery Image - SLES SAP 12-SP1",
+                "Gallery Image - SLES SAP BYOS 12-SP1",
+                "Gallery Image - SLES SAP 12-SP2",
+                "Gallery Image - SLES SAP BYOS 12-SP2",
+                "Gallery Image - SLES SAP 12-SP3",
+                "Gallery Image - SLES SAP BYOS 12-SP3",
+                "Gallery Image - Windows Server 2012 Datacenter",
+                "Gallery Image - Windows Server 2012 R2 Datacenter",
+                "Gallery Image - Windows Server 2016 Datacenter",
+                "Gallery Image - Oracle Linux 7.2"
             ],
-            "defaultValue": "RHEL 7.3 BYOS 2018-03-21",
+            "defaultValue": "Custom Image - RHEL 7.3 BYOS 2018-03-21",
             "metadata": {
                 "description": "The Virtual Machine operating system you want to deploy"
             }
         },
-        "role": {
+        "vmRole": {
             "type": "string",
             "allowedValues": [
                 "ISU",
@@ -58,6 +51,13 @@
                 "description": "The Virtual Machine role you want to deploy"
             }
         },
+        "vmAdminUserName": {
+            "type": "string",
+            "defaultValue": "azureuser"
+        },
+        "vmAdminPassword": {
+            "type": "securestring"
+        },
         "vmIpAddresses": {
             "type": "array",
             "minLength": 2,
@@ -67,36 +67,40 @@
                 ""
             ],
             "metadata": {
-                "description": "The Virtual Machine static IP addresses. If an address is blank, DHCP will be used"
+                "description": "Array of Virtual Machine static IP addresses. If an address is blank, DHCP will be used"
             }
         }
     },
     "variables": {
-        "uniqueId": "[parameters('uniqueId')]",
-        "azuredeploy.validate.templatename": "[concat('azuredeploy.validate.', variables('uniqueId'))]",
-        "azuredeploy.validate.templateuri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy.validate.json')]",
-        "vm.templatename": "[concat('vm.', variables('uniqueId'))]",
-        "vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.json')]",
-        "networkinterfaces.templatename": "[concat('networkinterfaces.', variables('uniqueId'))]",
-        "networkinterfaces.templateuri": "[uri(deployment().properties.templateLink.uri, 'networkinterfaces.json')]"
+        "uniqueDeploymentId": "[concat(parameters('vmDeploymentNumber'), '.', parameters('vmRole'))]",
+        "validate.templatename": "[concat('validate.', variables('uniqueDeploymentId'))]",
+        "validate.templateuri": "[uri(deployment().properties.templateLink.uri, 'validate.json')]",
+        "settings.vm.templatename": "[concat('settings.vm.', variables('uniqueDeploymentId'))]",
+        "settings.vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'settings.vm.json')]",
+        "settings.nic.templatename": "[concat('settings.nic.', variables('uniqueDeploymentId'))]",
+        "settings.nic.templateuri": "[uri(deployment().properties.templateLink.uri, 'settings.nic.json')]",
+        "deploy.vm.templatename": "[concat('deploy.vm.', variables('uniqueDeploymentId'))]",
+        "deploy.vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'deploy.vm.json')]",
+        "deploy.nic.templatename": "[concat('deploy.nic.', variables('uniqueDeploymentId'))]",
+        "deploy.nic.templateuri": "[uri(deployment().properties.templateLink.uri, 'deploy.nic.json')]"
     },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "[variables('azuredeploy.validate.templatename')]",
+            "name": "[variables('validate.templatename')]",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "uri": "[variables('azuredeploy.validate.templateuri')]",
+                    "uri": "[variables('validate.templateuri')]",
                     "contentVersion": "1.0.0.0"
                 },
                 "debugSetting": {
                     "detailLevel": "requestContent, responseContent"
                 },
                 "parameters": {
-                    "uniqueId": {
-                        "value": "[parameters('uniqueId')]"
+                    "uniqueDeploymentId": {
+                        "value": "[variables('uniqueDeploymentId')]"
                     },
                     "location": {
                         "value": "[resourceGroup().location]"
@@ -104,69 +108,118 @@
                     "subscription": {
                         "value": "[subscription().displayName]"
                     },
-                    "image": {
-                        "value": "[parameters('image')]"
+                    "vmImage": {
+                        "value": "[parameters('vmImage')]"
                     },
-                    "role": {
-                        "value": "[parameters('role')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "[variables('vm.templatename')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments/', variables('azuredeploy.validate.templatename'))]"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('vm.templateuri')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "debugSetting": {
-                    "detailLevel": "requestContent, responseContent"
-                },
-                "parameters": {
-                    "params": {
-                        "value": "[reference(variables('azuredeploy.validate.templatename')).outputs.params.value]"
+                    "vmRole": {
+                        "value": "[parameters('vmRole')]"
                     },
-                    "adminUserName": {
-                        "value": "[parameters('adminUserName')]"
+                    "vmAdminUserName": {
+                        "value": "[parameters('vmAdminUserName')]"
                     },
-                    "adminPassword": {
-                        "value": "[parameters('adminPassword')]"
-                    }
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "[variables('networkinterfaces.templatename')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Resources/deployments/', variables('azuredeploy.validate.templatename'))]"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('networkinterfaces.templateuri')]",
-                    "contentVersion": "1.0.0.0"
-                },
-                "debugSetting": {
-                    "detailLevel": "requestContent, responseContent"
-                },
-                "parameters": {
-                    "params": {
-                        "value": "[reference(variables('azuredeploy.validate.templatename')).outputs.params.value]"
+                    "vmAdminPassword": {
+                        "value": "[parameters('vmAdminPassword')]"
                     },
-                    "primary": {
-                        "value": true
-                    },
-                    "ipAddresses": {
+                    "vmIpAddresses": {
                         "value": "[parameters('vmIpAddresses')]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[variables('settings.vm.templatename')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('validate.templatename'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('settings.vm.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "params": {
+                        "value": "[reference(variables('validate.templatename')).outputs.params.value]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[variables('settings.nic.templatename')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('validate.templatename'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('settings.nic.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "params": {
+                        "value": "[reference(variables('validate.templatename')).outputs.params.value]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[variables('deploy.nic.templatename')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('settings.nic.templatename'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('deploy.nic.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "params": {
+                        "value": "[reference(variables('validate.templatename')).outputs.params.value]"
+                    },
+                    "properties": {
+                        "value": "[reference(variables('settings.nic.templatename')).outputs.output.value]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "[variables('deploy.vm.templatename')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('settings.vm.templatename'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('deploy.vm.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "params": {
+                        "value": "[reference(variables('validate.templatename')).outputs.params.value]"
+                    },
+                    "properties": {
+                        "value": "[reference(variables('settings.vm.templatename')).outputs.output.value]"
                     }
                 }
             }
