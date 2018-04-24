@@ -14,15 +14,17 @@
                 }
             }
         },
-        "bootDiagnostics": {
-            "enabled": true,
-            "storageUri": "[variables('storageUri')[parameters('params').subscription][parameters('params').location].uri]"
+        "diagnosticsProfile": {
+            "bootDiagnostics": {
+                "enabled": true,
+                "storageUri": "[variables('storageUri')[parameters('params').subscription][parameters('params').location].uri]"
+            }
         }
     },
     "resources": [],
     "outputs": {
-        "bootDiagnostics": {
-            "value": "[variables('bootDiagnostics')]",
+        "output": {
+            "value": "[variables('diagnosticsProfile')]",
             "type": "object"
         }
     }
