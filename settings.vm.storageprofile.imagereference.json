@@ -7,7 +7,7 @@
         }
     },
     "variables": {
-        "RHEL 7.2": {
+        "Gallery Image - RHEL 7.2": {
             "imageReference": {
                 "sku": "7.2",
                 "offer": "RHEL",
@@ -15,7 +15,7 @@
                 "version": "latest"
             }
         },
-        "RHEL 7.3": {
+        "Gallery Image - RHEL 7.3": {
             "imageReference": {
                 "sku": "7.3",
                 "offer": "RHEL",
@@ -23,7 +23,7 @@
                 "version": "latest"
             }
         },
-        "SLES SAP 12-SP1": {
+        "Gallery Image - SLES SAP 12-SP1": {
             "imageReference": {
                 "sku": "12-SP1",
                 "offer": "SLES-SAP",
@@ -31,7 +31,7 @@
                 "version": "latest"
             }
         },
-        "SLES SAP BYOS 12-SP1": {
+        "Gallery Image - SLES SAP BYOS 12-SP1": {
             "imageReference": {
                 "sku": "12-SP1",
                 "offer": "SLES-SAP-BYOS",
@@ -39,7 +39,7 @@
                 "version": "latest"
             }
         },
-        "SLES SAP 12-SP2": {
+        "Gallery Image - SLES SAP 12-SP2": {
             "imageReference": {
                 "sku": "12-SP2",
                 "offer": "SLES-SAP",
@@ -47,7 +47,7 @@
                 "version": "latest"
             }
         },
-        "SLES SAP BYOS 12-SP2": {
+        "Gallery Image - SLES SAP BYOS 12-SP2": {
             "imageReference": {
                 "sku": "12-SP2",
                 "offer": "SLES-SAP-BYOS",
@@ -55,7 +55,7 @@
                 "version": "latest"
             }
         },
-        "SLES SAP 12-SP3": {
+        "Gallery Image - SLES SAP 12-SP3": {
             "imageReference": {
                 "sku": "12-SP3",
                 "offer": "SLES-SAP",
@@ -63,7 +63,7 @@
                 "version": "latest"
             }
         },
-        "SLES SAP BYOS 12-SP3": {
+        "Gallery Image - SLES SAP BYOS 12-SP3": {
             "imageReference": {
                 "sku": "12-SP3",
                 "offer": "SLES-SAP-BYOS",
@@ -71,7 +71,7 @@
                 "version": "latest"
             }
         },
-        "Windows Server 2012 Datacenter": {
+        "Gallery Image - Windows Server 2012 Datacenter": {
             "imageReference": {
                 "sku": "2012-Datacenter",
                 "offer": "WindowsServer",
@@ -79,7 +79,7 @@
                 "version": "latest"
             }
         },
-        "Windows Server 2012 R2 Datacenter": {
+        "Gallery Image - Windows Server 2012 R2 Datacenter": {
             "imageReference": {
                 "sku": "2012-R2-Datacenter",
                 "offer": "WindowsServer",
@@ -87,7 +87,7 @@
                 "version": "latest"
             }
         },
-        "Windows Server 2016 Datacenter": {
+        "Gallery Image - Windows Server 2016 Datacenter": {
             "imageReference": {
                 "sku": "2016-Datacenter",
                 "offer": "WindowsServer",
@@ -95,7 +95,7 @@
                 "version": "latest"
             }
         },
-        "Oracle Linux 7.2": {
+        "Gallery Image - Oracle Linux 7.2": {
             "imageReference": {
                 "sku": "7.2",
                 "offer": "Oracle-Linux",
@@ -103,25 +103,25 @@
                 "version": "latest"
             }
         },
-        "userImage": {
+        "customImage": {
             "SAP Dev Test": {
                 "ukwest": {
-                    "RHEL 7.3 BYOS 2018-03-21": {
-                        "id": "[resourceId('azwu-rg-sapdevtest-vmcustomimages', 'Microsoft.Compute/images', 'azwu-vmimage-redhat-rhel-7.3-byos-2018-03-2')]"
+                    "Custom Image - RHEL 7.3 BYOS 2018-03-21": {
+                        "id": "[resourceId('azwu-rg-sapdevtest-vmcustomimages', 'Microsoft.Compute/images', 'azwu-vmimage-redhat-rhel-7.3-byos-2018-03-21')]"
                     }
                 }
             }
         },
-        "RHEL 7.3 BYOS 2018-03-21": {
+        "Custom Image - RHEL 7.3 BYOS 2018-03-21": {
             "imageReference": {
-                "id": "[variables('userImage')[parameters('params').subscription][parameters('params').location][string('RHEL 7.3 BYOS 2018-03-21')].id]"
+                "id": "[variables('customImage')[parameters('params').subscription][parameters('params').location][string('Custom Image - RHEL 7.3 BYOS 2018-03-21')].id]"
             }
         }
     },
     "resources": [],
     "outputs": {
-        "imageReference": {
-            "value": "[variables(parameters('params').image).imageReference]",
+        "output": {
+            "value": "[variables(parameters('params').vmImage).imageReference]",
             "type": "object"
         }
     }
