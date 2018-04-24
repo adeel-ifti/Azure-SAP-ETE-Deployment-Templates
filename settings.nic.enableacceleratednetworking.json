@@ -24,8 +24,8 @@
     },
     "resources": [],
     "outputs": {
-        "enableAcceleratedNetworking": {
-            "value": "[variables('acceleratedNetworking')[parameters('params').subscription][parameters('params').role]]",
+        "output": {
+            "value": "[variables('acceleratedNetworking')[parameters('params').subscription][parameters('params').vmRole]]",
             "type": "bool"
         }
     }
