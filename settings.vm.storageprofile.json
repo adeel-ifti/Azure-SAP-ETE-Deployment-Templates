@@ -4,17 +4,14 @@
     "parameters": {
         "params": {
             "type": "object"
-        },
-        "vmName": {
-            "type": "string"
         }
     },
     "variables": {
-        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', parameters('params').uniqueId)]",
+        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', parameters('params').uniqueDeploymentId)]",
         "vm.storageprofile.osdisk.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
-        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', parameters('params').uniqueId)]",
+        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', parameters('params').uniqueDeploymentId)]",
         "vm.storageprofile.datadisks.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
-        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', parameters('params').uniqueId)]",
+        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', parameters('params').uniqueDeploymentId)]",
         "vm.storageprofile.imagereference.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]"
     },
     "resources": [
@@ -34,9 +31,6 @@
                 "parameters": {
                     "params": {
                         "value": "[parameters('params')]"
-                    },
-                    "vmName": {
-                        "value": "[parameters('vmName')]"
                     }
                 }
             }
@@ -57,9 +51,6 @@
                 "parameters": {
                     "params": {
                         "value": "[parameters('params')]"
-                    },
-                    "vmName": {
-                        "value": "[parameters('vmName')]"
                     }
                 }
             }
