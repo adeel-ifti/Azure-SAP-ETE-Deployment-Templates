@@ -77,7 +77,7 @@
         }
     ],
     "outputs": {
-        "storageProfile": {
+        "output": {
             "type": "object",
             "value": {
                 "imageReference": "[reference(variables('settings.vm.storageprofile.imagereference.templatename')).outputs.output.value]",
