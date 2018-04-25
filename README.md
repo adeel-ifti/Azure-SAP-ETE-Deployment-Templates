@@ -1,16 +1,16 @@
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsimonhutson%2FARMTest%2Fmaster%2Fazuredeploy.json" target="_blank">
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsimonhutson%2FARMTest%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<p>Deploly single SAP VM</p>
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsimonhutson%2FARMTest%2Fmaster%2Fazuredeploy.full.json" target="_blank">
+Deploly single SAP VM</p>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsimonhutson%2FARMTest%2Fmaster%2Fazuredeploy.full.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<p>Deploy a full SAP Environment (10 VMs)</>
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsimonhutson%2FARMTest%2Fmaster%2Fazuredeploy.functional.json" target="_blank">
+Deploy a full SAP Environment (10 VMs)</>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsimonhutson%2FARMTest%2Fmaster%2Fazuredeploy.functional.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<p>Deploy a functional SAP Environment (7 VMs)</>
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsimonhutson%2FARMTest%2Fmaster%2Fazuredeploy.core.json" target="_blank">
+Deploy a functional SAP Environment (7 VMs)</>
+<p><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsimonhutson%2FARMTest%2Fmaster%2Fazuredeploy.core.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<p>Deploy a core SAP Environment (5 VMs)</>
+Deploy a core SAP Environment (5 VMs)</>
