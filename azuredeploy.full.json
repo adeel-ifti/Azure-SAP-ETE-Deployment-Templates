@@ -58,9 +58,9 @@
     },
     "variables": {
         "uniqueDeploymentIdISU": "[concat(parameters('vmDeploymentNumber'), '.ISU')]",
-        "azuredeploy.ISU.templatename": "[concat('azuredeploy.singlevm.', variables('uniqueDeploymentIdISU'))]",
+        "azuredeploy.ISU.templatename": "[concat('azuredeploy.', variables('uniqueDeploymentIdISU'))]",
         "uniqueDeploymentIdCRM": "[concat(parameters('vmDeploymentNumber'), '.CRM')]",
-        "azuredeploy.CRM.templatename": "[concat('azuredeploy.singlevm.', variables('uniqueDeploymentIdCRM'))]",
+        "azuredeploy.CRM.templatename": "[concat('azuredeploy.', variables('uniqueDeploymentIdCRM'))]",
         "azuredeploy.templateuri": "[uri(deployment().properties.templateLink.uri, 'azuredeploy.json')]"
     },
     "resources": [
