@@ -149,7 +149,7 @@
                 },
                 "parameters": {
                     "params": {
-                        "value": "[reference(variables('validate.templatename')).outputs.outpu.value]"
+                        "value": "[reference(variables('validate.templatename')).outputs.output.value]"
                     }
                 }
             }
@@ -172,7 +172,7 @@
                 },
                 "parameters": {
                     "params": {
-                        "value": "[reference(variables('validate.templatename')).outputs.outpu.value]"
+                        "value": "[reference(variables('validate.templatename')).outputs.output.value]"
                     }
                 }
             }
