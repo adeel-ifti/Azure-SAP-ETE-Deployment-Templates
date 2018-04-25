@@ -7,12 +7,12 @@
         }
     },
     "variables": {
-        "vm.storageprofile.osdisk.templatename": "[concat('vm.storageprofile.osdisk.', parameters('params').uniqueDeploymentId)]",
-        "vm.storageprofile.osdisk.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.osdisk.json')]",
-        "vm.storageprofile.datadisks.templatename": "[concat('vm.storageprofile.datadisks.', parameters('params').uniqueDeploymentId)]",
-        "vm.storageprofile.datadisks.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.datadisks.json')]",
-        "vm.storageprofile.imagereference.templatename": "[concat('vm.storageprofile.imagereference.', parameters('params').uniqueDeploymentId)]",
-        "vm.storageprofile.imagereference.templateuri": "[uri(deployment().properties.templateLink.uri, 'vm.storageprofile.imagereference.json')]"
+        "vm.storageprofile.osdisk.templatename": "[concat('settings.vm.storageprofile.osdisk.', parameters('params').uniqueDeploymentId)]",
+        "vm.storageprofile.osdisk.templateuri": "[uri(deployment().properties.templateLink.uri, 'settings.vm.storageprofile.osdisk.json')]",
+        "vm.storageprofile.datadisks.templatename": "[concat('settings.vm.storageprofile.datadisks.', parameters('params').uniqueDeploymentId)]",
+        "vm.storageprofile.datadisks.templateuri": "[uri(deployment().properties.templateLink.uri, 'settings.vm.storageprofile.datadisks.json')]",
+        "vm.storageprofile.imagereference.templatename": "[concat('settings.vm.storageprofile.imagereference.', parameters('params').uniqueDeploymentId)]",
+        "vm.storageprofile.imagereference.templateuri": "[uri(deployment().properties.templateLink.uri, 'settings.vm.storageprofile.imagereference.json')]"
     },
     "resources": [
         {
