@@ -75,6 +75,8 @@
         "uniqueDeploymentId": "[concat(parameters('vmDeploymentNumber'), '.', parameters('vmRole'))]",
         "validate.templatename": "[concat('validate.', variables('uniqueDeploymentId'))]",
         "validate.templateuri": "[uri(deployment().properties.templateLink.uri, 'validate.json')]",
+        "settings.tags.templatename": "[concat('settings.tags.', variables('uniqueDeploymentId'))]",
+        "settings.tags.templateuri": "[uri(deployment().properties.templateLink.uri, 'settings.tags.json')]",
         "settings.vm.templatename": "[concat('settings.vm.', variables('uniqueDeploymentId'))]",
         "settings.vm.templateuri": "[uri(deployment().properties.templateLink.uri, 'settings.vm.json')]",
         "settings.nic.templatename": "[concat('settings.nic.', variables('uniqueDeploymentId'))]",
@@ -132,6 +134,29 @@
         {
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
+            "name": "[variables('settings.tags.templatename')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('validate.templatename'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('settings.tags.templateuri')]",
+                    "contentVersion": "1.0.0.0"
+                },
+                "debugSetting": {
+                    "detailLevel": "requestContent, responseContent"
+                },
+                "parameters": {
+                    "params": {
+                        "value": "[reference(variables('validate.templatename')).outputs.outpu.value]"
+                    }
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
             "name": "[variables('settings.vm.templatename')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/deployments/', variables('validate.templatename'))]"
@@ -147,7 +172,7 @@
                 },
                 "parameters": {
                     "params": {
-                        "value": "[reference(variables('validate.templatename')).outputs.params.value]"
+                        "value": "[reference(variables('validate.templatename')).outputs.outpu.value]"
                     }
                 }
             }
@@ -170,7 +195,7 @@
                 },
                 "parameters": {
                     "params": {
-                        "value": "[reference(variables('validate.templatename')).outputs.params.value]"
+                        "value": "[reference(variables('validate.templatename')).outputs.output.value]"
                     }
                 }
             }
@@ -180,6 +205,7 @@
             "apiVersion": "2017-05-10",
             "name": "[variables('deploy.nic.templatename')]",
             "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('settings.tags.templatename'))]",
                 "[resourceId('Microsoft.Resources/deployments/', variables('settings.nic.templatename'))]"
             ],
             "properties": {
@@ -193,7 +219,10 @@
                 },
                 "parameters": {
                     "params": {
-                        "value": "[reference(variables('validate.templatename')).outputs.params.value]"
+                        "value": "[reference(variables('validate.templatename')).outputs.output.value]"
+                    },
+                    "tags":{
+                        "value": "[reference(variables('settings.tags.templatename')).outputs.output.value]"
                     },
                     "properties": {
                         "value": "[reference(variables('settings.nic.templatename')).outputs.output.value]"
@@ -206,6 +235,7 @@
             "apiVersion": "2017-05-10",
             "name": "[variables('deploy.vm.templatename')]",
             "dependsOn": [
+                "[resourceId('Microsoft.Resources/deployments/', variables('settings.tags.templatename'))]",
                 "[resourceId('Microsoft.Resources/deployments/', variables('settings.vm.templatename'))]"
             ],
             "properties": {
@@ -219,7 +249,10 @@
                 },
                 "parameters": {
                     "params": {
-                        "value": "[reference(variables('validate.templatename')).outputs.params.value]"
+                        "value": "[reference(variables('validate.templatename')).outputs.output.value]"
+                    },
+                    "tags":{
+                        "value": "[reference(variables('settings.tags.templatename')).outputs.output.value]"
                     },
                     "properties": {
                         "value": "[reference(variables('settings.vm.templatename')).outputs.output.value]"
