@@ -108,6 +108,9 @@
                     "subscription": {
                         "value": "[subscription().displayName]"
                     },
+                    "vmDeploymentNumber": {
+                        "value": "[parameters('vmDeploymentNumber')]"
+                    },
                     "vmImage": {
                         "value": "[parameters('vmImage')]"
                     },
