@@ -90,7 +90,7 @@
     },
     "resources": [],
     "outputs": {
-        "params": {
+        "output": {
             "type": "object",
             "value": {
                 "uniqueDeploymentId": "[parameters('uniqueDeploymentId')]",
