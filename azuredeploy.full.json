@@ -41,7 +41,6 @@
         },
         "vmIpAddressISU": {
             "type": "string",
-            "minLength": 0,
             "maxLength": 15,
             "defaultValue": "",
             "metadata": {
@@ -50,7 +49,6 @@
         },
         "vmIpAddressCRM": {
             "type": "string",
-            "minLength": 0,
             "maxLength": 15,
             "defaultValue": "",
             "metadata": {
