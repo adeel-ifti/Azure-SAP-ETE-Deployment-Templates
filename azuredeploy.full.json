@@ -50,7 +50,7 @@
         },
         "vmIpAddressCRM": {
             "type": "string",
-            "minLength": 7,
+            "minLength": 0,
             "maxLength": 15,
             "defaultValue": "",
             "metadata": {
