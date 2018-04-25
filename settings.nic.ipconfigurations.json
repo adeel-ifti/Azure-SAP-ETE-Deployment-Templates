@@ -56,7 +56,7 @@
                             "privateIpAddressVersion": "IPv4",
                             "primary": "[if(equals(copyIndex('ipConfigurations'),0),'true','false')]",
                             "subnet": {
-                                "id": "[variables('subnets')[parameters('params').subscription][parameters('params').location][parameters('params').role].id]"
+                                "id": "[variables('subnets')[parameters('params').subscription][parameters('params').location][parameters('params').vmRole].id]"
                             }
                         }
                     }
