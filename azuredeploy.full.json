@@ -94,7 +94,7 @@
                     "vmAdminPassword": {
                         "value": "[parameters('vmAdminPassword')]"
                     },
-                    "vmIpAddress": {
+                    "vmIpAddresses": {
                         "value": [
                             "",
                             "[parameters('vmIpAddressISU')]"
@@ -133,7 +133,7 @@
                     "vmAdminPassword": {
                         "value": "[parameters('vmAdminPassword')]"
                     },
-                    "vmIpAddress": {
+                    "vmIpAddresses": {
                         "value": [
                             "",
                             "[parameters('vmIpAddressCRM')]"
