@@ -5,6 +5,9 @@
         "params": {
             "type": "object"
         },
+        "tags": {
+            "type": "object"
+        },
         "properties": {
             "type": "object"
         }
@@ -16,7 +19,7 @@
             "apiVersion": "2017-12-01",
             "name": "[parameters('params').vmName]",
             "location": "[parameters('params').location]",
-            "tags": {},
+            "tags": "[parameters('tags')]",
             "dependsOn": [],
             "properties": "[parameters('properties')]"
         }
