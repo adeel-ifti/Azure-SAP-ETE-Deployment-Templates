@@ -19,47 +19,56 @@ Deploy a CORE SAP Environment (5 VMs - ISU, CRM, PIC, JVA, NGW)</p>
 <p>The VMs are configured using the following sizes, and data disk configurations</p>
 <table>
 	<tr>
-		<th>Size</th>
-		<th>Premium Storage</th>
+		<th>VM Role</th>
+		<th>VM Size</th>
+		<th>Data Disks</th>
 	</tr>
 	<tr>
 		<td>ISU</td>
-		<td>1xE4s_v3 (1xP6 1xP30 1xP4 1xP6)</td>
+		<td>1xE4s_v3</td>
+		<td>(1xP6 1xP30 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>CRM</td>
-		<td>1xE4s_v3 (1xP6 1xP20 1xP4 1xP6)</td>
+		<td>1xE4s_v3</td>
+		<td>1xP6 1xP20 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>PIC</td>
-		<td>1xD4s_v3 (1xP6 1xP20 1xP4 1xP6)</td>
+		<td>1xD4s_v3</td>
+		<td>1xP6 1xP20 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>BWA</td>
-		<td>1xD4s_v3 (1xP6 1xP20 1xP4 1xP6)</td>
+		<td>1xD4s_v3</td>
+		<td>1xP6 1xP20 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>MOB</td>
-		<td>1xE2s_v3 (1xP6 1xP6 1xP4 1xP6)</td>
+		<td>1xE2s_v3</td>
+		<td>1xP6 1xP6 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>EWM</td>
-		<td>1xE2s_v3 (1xP6 1xP10 1xP4 1xP6)</td>
+		<td>1xE2s_v3 (1xP6 1xP10 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>JVA</td>
-		<td>1xE2s_v3 (1xP6 1xP6 1xP4 1xP6)</td>
+		<td>1xE2s_v3</td>
+		<td>1xP6 1xP6 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>CEV</td>
-		<td>1xE2s_v3 (1xP6 1xP20 1xP4 1xP6)</td>
+		<td>1xE2s_v3</td>
+		<td>1xP6 1xP20 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>PIN</td>
-		<td>1xE2s_v3 (1xP6 1xP6 1xP4 1xP6)</td>
+		<td>1xE2s_v3 (1xP6 1xP6 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>NGW</td>
-		<td>1xE2s_v3 (1xP6 1xP10 1xP4 1xP6)</td>
+		<td>1xE2s_v3</td>
+		<td>1xP6 1xP10 1xP4 1xP6</td>
 	</tr>
 </table>
