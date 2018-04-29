@@ -50,7 +50,8 @@ Deploy a CORE SAP Environment (5 VMs - ISU, CRM, PIC, JVA, NGW)</p>
 	</tr>
 	<tr>
 		<td>EWM</td>
-		<td>1xE2s_v3 (1xP6 1xP10 1xP4 1xP6</td>
+		<td>1xE2s_v3</td>
+		<td>1xP6 1xP10 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>JVA</td>
@@ -64,7 +65,8 @@ Deploy a CORE SAP Environment (5 VMs - ISU, CRM, PIC, JVA, NGW)</p>
 	</tr>
 	<tr>
 		<td>PIN</td>
-		<td>1xE2s_v3 (1xP6 1xP6 1xP4 1xP6</td>
+		<td>1xE2s_v3</td>
+		<td>1xP6 1xP6 1xP4 1xP6</td>
 	</tr>
 	<tr>
 		<td>NGW</td>
