@@ -24,6 +24,7 @@
             "type": "string",
             "allowedValues": [
                 "Custom Image - RHEL 7.3 BYOS 2018-03-21",
+                "Custom Image - RHEL 7.3 BYOS 2018-05-16",
                 "Gallery Image - RHEL 7.2",
                 "Gallery Image - RHEL 7.3",
                 "Gallery Image - SLES SAP 12-SP1",
