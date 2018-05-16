@@ -149,6 +149,17 @@
                     "storageAccountType": "Premium_LRS"
                 }
             }
+        },
+        "Custom Image - RHEL 7.3 BYOS 2018-05-16": {
+            "osDisk": {
+                "osType": "Linux",
+                "name": "[concat(parameters('params').vmName, '-osdisk')]",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDisk": {
+                    "storageAccountType": "Premium_LRS"
+                }
+            }
         }
     },
     "resources": [],
